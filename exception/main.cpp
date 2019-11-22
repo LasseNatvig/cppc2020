@@ -1,4 +1,4 @@
-/* exception.cpp     (See also vector_intro.cpp   XX)
+/* exception.cpp     (See also vector_intro.cpp  YY )
 *** This file demonstrates:
 - generating random numbers with rand() and srand()
 - (Three ways to loop, repetition from vector_intro)
