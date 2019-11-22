@@ -83,6 +83,6 @@ int main() {
 
 	}
 
-	cout << endl << "goodbye" << endl;
+	cout << endl << "goodbye!" << endl;
 	keep_window_open();
 }
