@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* exception.cpp     (See also vector_intro.cpp  YY )
+=======
+>>>>>>> 4ead508b83c7aa7157991762739fb69e817ad2a2
 *** This file demonstrates:
 - generating random numbers with rand() and srand()
 - (Three ways to loop, repetition from vector_intro)
