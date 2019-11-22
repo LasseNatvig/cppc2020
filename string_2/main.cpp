@@ -19,7 +19,7 @@ int main() {
 	for (unsigned int i = 3; i <= str2.size(); ++i) {
 		str2[i] = '*';
 	}
-	cout << "str2: " << str2 << endl;
+	cout << "str2: " << str2 << endl;  
 
 	//*****************************************************
 	// C) when accessing chars in a string we can use member function at() instead of [], and we see
@@ -35,7 +35,7 @@ int main() {
 	//*****************************************************
 	// D) Old C-style string, C-string (PPP 27.5), 
 	// strlen(s) gives the length of a C-string, correct use
-	char str4[] = "ABCDEF";
+	char str4[] = "ABCDEF";  
 	for (unsigned int i = 3; i < strlen(str4); ++i) {
 		str4[i] = '*';
 	}
