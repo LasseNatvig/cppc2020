@@ -14,7 +14,7 @@ int main() {
 	srand(static_cast<unsigned int>(time(nullptr))); // Sets a seed for random number generator given by current time. Comment out 
 												  // this statement if you want deterministic behaviour
 	int secret = (rand() % 10) + 1; // sets secret number using rand()
-	int guess = 0;
+	int guess = 0;   
 	int count = 0;
 	while (guess != secret) {
 		guess = getGuess(1, 10);
