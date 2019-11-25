@@ -8,7 +8,11 @@ int main() {
 	for (int i = 0; i < 16; ++i) // From PPP page 467
 		for (int j = 0; j < 16; ++j) {
 			vr.push_back(new Rectangle{ Point{ i * 20, j * 20 }, 20, 20 });
+<<<<<<< HEAD
 			vr[vr.size() - 1].set_fill_color(Color{ i * 16 + j });  
+=======
+			vr[vr.size() - 1].set_fill_color(Color{ i * 16 + j }); // test
+>>>>>>> 7c7904162aa51b0695945a302f04c77806bf08d8
 			win.attach(vr[vr.size() - 1]);
 
 			cout << '[' << i << ',' << j << "] colorvalue: " << i * 16 + j << endl;
