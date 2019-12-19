@@ -18,7 +18,6 @@ vector<double> roots() {
 
 int main() {
 	vector<int> numbers{ -3, 3, 5, 8888 };
-	vector<int> v{ 1, 4, 2, 3, 5 };
 
 	// a)
 	cout << "The numbers are:\n";
@@ -26,12 +25,10 @@ int main() {
 		cout << numbers[i] << " ";
 	}
 
+	// b)
 	numbers[0] = -4;
 	cout << "\n... after changing its first element:\n";
-
-	// b)
-	unsigned int max = numbers.size();
-	for (unsigned int i = 0; i < max; i++) {
+	for (unsigned int i = 0; i < numbers.size(); i++) {
 		cout << numbers[i] << " ";
 	}
 
