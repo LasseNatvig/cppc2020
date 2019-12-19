@@ -15,7 +15,7 @@ struct TestClass : Shape { // A very dumb class that always draws a red line (10
 int main() {
 	using namespace Graph_lib;
 	Point tl{ 100, 100 };
-	Simple_window win{ tl, 600, 400, "Canvas" }; 
+	Simple_window win{ tl, 600, 400, "Canvas " }; 
 
 	win.set_label("graphDemo.cpp");
 	// The class Function is described in PPP 15.3

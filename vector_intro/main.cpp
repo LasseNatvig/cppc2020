@@ -18,20 +18,17 @@ vector<double> roots() {
 
 int main() {
 	vector<int> numbers{ -3, 3, 5, 8888 };
-	vector<int> v{ 1, 4, 2, 3, 5 };
 
 	// a)
-	cout << "The numbers are:\n"; // unsigned int is needed below to avoid warning in MS-VS
-	for (int i = 0; i < numbers.size(); i++) { // MS VS code does not give such warning
+	cout << "The numbers are:\n";
+	for (unsigned int i = 0; i < numbers.size(); i++) { 
 		cout << numbers[i] << " ";
 	}
 
+	// b)
 	numbers[0] = -4;
 	cout << "\n... after changing its first element:\n";
-
-	// b)
-	unsigned int max = numbers.size();
-	for (unsigned int i = 0; i < max; i++) {
+	for (unsigned int i = 0; i < numbers.size(); i++) {
 		cout << numbers[i] << " ";
 	}
 
