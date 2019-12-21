@@ -2,14 +2,14 @@
 #include "std_lib_facilities.h"
 int main() {
 	//**************************************************
-	// part a) Uninitialized variables, MS-VS gives error message for these, therefore commented out
+	// part a) Uninitialized variables, MS-Visual Studio gives error message for these
+	// MS-VS Code, used in the 2020 course allows these, but gives good warnings and advice for improving the code
 	
-	int x;		// x gets a “random” initial value
-	char c; 	// c gets a “random” initial value
-	double d; 	// d gets a “random” initial value
+	int x;		// could get a “random” initial value on some compilers, is set to 0 by VS code
+	char c; 	// could get a “random” initial value on some compilers, is set to ' ' by VS code
+	double d; 	// could get a “random” initial value on some compilers, is set to zero or almost zero by VS code
 				//     – not every bit pattern is a valid floating-point value
-	double dd = d;	// potential error: some implementations
-					// can’t copy invalid floating-point values
+	double dd = d;	// potential error: some implementations, can’t copy invalid floating-point values
 	cout << " x: " << x << " c: " << c << " d: " << d << " dd: " << dd << '\n';
 
 	//**************************************************
@@ -18,10 +18,12 @@ int main() {
 		int a = 20000;
 		char c = a;  
 		int b = c;
-		if (a != b)	    	//  != means “not equal”
+		if (a != b)	{    	//  != means “not equal”
 			cout << "Oops: " << a << " != " << b << '\n';
-		else
+		}
+		else {
 			cout << "Wow! We have large characters\n";
+		}
 	}
 
 	//**************************************************
@@ -30,20 +32,19 @@ int main() {
 		double x = 2.7;
 		// lots of code ..., and we might have forgotten that x is double
 		int y = x; // y becomes 2
-
 		int a = 1000;
 		char b = a; // b becomes –24 (on some machines)
 		cout << endl;
 	}
-
 	{
 		double x{ 2.7 }; // OK
-		// int y{ x }; // error: double -> int might narrow
+		// int y{ x }; // VS code: error: type 'double' cannot be narrowed to 'int' in initializer list
 		int a{ 40 }; // OK
-		//** char b{ a }; // error: int -> char might narrow
+		// char b{ a }; // VS code: error: non-constant-expression cannot be narrowed from type 'int' to 'char' in initializer list
 
-		//** char b1{ 1000 }; // error: narrowing (assuming 8-bit chars)
+		// char b1{ 1000 }; // VS code:  error: constant expression evaluates to 1000 which cannot be narrowed to type 'char' 
 		char b2{ 48 }; // OK
+		cout << endl;
 	}
 
 	//**************************************************
