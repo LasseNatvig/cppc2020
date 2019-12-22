@@ -36,7 +36,7 @@ int main() {
 				<< quit << ": Quit\n> ";
 			cin >> choice;
 
-			if ((1 <= choice) && (choice <= 3)) { // By the way, && means logical and, || is logical or
+			if ((1 <= choice) && (choice <= 3)) { // By the way, && means logical AND, || is logical OR
 				cout << "Option " << choice << " selected\n";
 				// branch to right option and do it
 				continue;
