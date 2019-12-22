@@ -26,8 +26,8 @@ int main() {
 	// that at() is range checked. Code below does exactly the same as case B) above, and has the same erroneous <= in condition 
 	// and it will throw an exception. So it is SAFE
 	string str3 = "ABCDEF"; // 
-	for (unsigned int i = 3; i < str3.size(); ++i) {
-    //for (unsigned int i = 3; i <= str3.size(); ++i) {
+	for (unsigned int i = 3; i < str3.size(); ++i) { // this line needed to be able to proceed to case D)
+    // for (unsigned int i = 3; i <= str3.size(); ++i) {
 		str3.at(i) = '*';
 	}
 	cout << "str3: " << str3 << endl;
