@@ -7,9 +7,9 @@
 */
 
 #include "std_lib_facilities.h"  // If this is not used, include the three statements below
-//#include <iostream>
-//#include <vector>
-//using namespace std;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
 int main() {
 	constexpr int N = 10;
@@ -55,37 +55,37 @@ int main() {
 	}
 	cout << " case 4) finished" << endl;
 
-	//// 5) Traditional for loop with range error, try - catch demo, PPP page 149
-	//try {
-	//	for (unsigned int i = 0; i <= N; i++) {
-	//		cout << nums[i] << " ";
-	//	}
-	//	cout << endl;
-	//}
-	//catch (out_of_range) {
-	//	cerr << "Oops! Range error\n";
-	//	return 1;
-	//}
-	//catch (...) {
-	//	cerr << "Unknown exception\n";
-	//	return 2;
-	//}
+	// 5) Traditional for loop with range error, try - catch demo, PPP page 149
+	// try {
+	// 	for (unsigned int i = 0; i <= N; i++) {
+	// 		cout << nums[i] << " ";
+	// 	}
+	// 	cout << endl;
+	// }
+	// catch (out_of_range) {
+	// 	cerr << "Oops! Range error\n";
+	// 	return 1;
+	// }
+	// catch (...) {
+	// 	cerr << "Unknown exception\n";
+	// 	return 2;
+	// }
 
-	//cout << endl;
+	cout << endl;
 
 	// 6) Traditional for loop with range error, try - catch demo, PPP page 152
-	try {
-		for (unsigned int i = 0; i <= N; i++) {
-			cout << nums[i] << " ";
-		}
-		cout << endl;
-	}
-	catch (exception& e) {
-		cerr << "Exception: " << e.what() << "\n";
-		return 1;
-	}
-	catch (...) {
-		cerr << "Unknown exception\n";
-		return 2;
-	}
+	// try {
+	// 	for (unsigned int i = 0; i <= N; i++) {
+	// 		cout << nums[i] << " ";
+	// 	}
+	// 	cout << endl;
+	// }
+	// catch (exception& e) {
+	// 	cerr << "Exception: " << e.what() << "\n";
+	// 	return 1;
+	// }
+	// catch (...) {
+	// 	cerr << "Unknown exception\n";
+	// 	return 2;
+	// }
 }
