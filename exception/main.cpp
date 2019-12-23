@@ -49,11 +49,11 @@ int main() {
 	// if N is the number of elements in the vector (true)
 	// or the last index in the vector (false). We try the last option:
 
-	//// 4) Traditional for loop with range error
-	//for (unsigned int i = 0; i <= N; i++) {
-	//	cout << nums[i] << " ";
-	//}
-	//cout << endl;
+	// 4) Traditional for loop with range error
+	for (unsigned int i = 0; i <= N; i++) {
+		cout << nums[i] << " ";
+	}
+	cout << " case 4) finished" << endl;
 
 	//// 5) Traditional for loop with range error, try - catch demo, PPP page 149
 	//try {
