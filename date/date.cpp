@@ -57,7 +57,6 @@ void Date_s::add_day(int n) {	// increase the Date by n days
 }
 
 int main() try {
-	//************************
 	// (1)
 	// Date my_birthday; // error: no default contructor
 	// Date today{ 12, 24, 2007 };  // gives run time error (exception)
