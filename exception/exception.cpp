@@ -74,18 +74,19 @@ int main() {
 	cout << endl;
 
 	// 6) Traditional for loop with range error, try - catch demo, PPP page 152
-	// try {
-	// 	for (unsigned int i = 0; i <= N; i++) {
-	// 		cout << nums[i] << " ";
-	// 	}
-	// 	cout << endl;
-	// }
-	// catch (exception& e) {
-	// 	cerr << "Exception: " << e.what() << "\n";
-	// 	return 1;
-	// }
-	// catch (...) {
-	// 	cerr << "Unknown exception\n";
-	// 	return 2;
-	// }
+	try {
+		for (unsigned int i = 0; i <= N; i++) {
+			cout << nums[i] << " ";
+		}
+		cout << endl;
+	}
+	catch (exception& e) {
+		cerr << "Exception: " << e.what() << "\n";
+		return 1;
+	}
+	catch (...) {
+		cerr << "Unknown exception\n";
+		return 2;
+	}
+
 }
