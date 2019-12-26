@@ -5,7 +5,7 @@
 
 int main() try {
 	setlocale(LC_ALL, "norwegian");
-	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
+	cout << "cleanAir bruker C++ for et bedre miljÃ¸!\n\n";
 	Point topLeft{ 200, 300 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
 	cout << "... laster bykart\n";
@@ -29,7 +29,7 @@ int main() try {
 
 	win.wait_for_button();// debug
 
-	cout << "... simulerer siste døgn\n";
+	cout << "... simulerer siste dÃ¸gn\n";
 	for (int hour = 0; hour < 24; hour++) {
 		Text time{ Point{200, 200}, "Time: " + to_string(hour) + ":00h" };
 		time.set_color(Color::dark_red);
