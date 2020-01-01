@@ -18,15 +18,15 @@ int main() {
 	vector<int> minTemp{ 10, 9, 5, -2, -3, -4, -6, -6, 1, 8, 8, 13 };
 
 	Open_polyline oplMax;
-	for (int i = 0; i < maxTemp.size(); i++) {
-		oplMax.add(Point{ origo.x + i, origo.y - maxTemp[i] });
+	for (unsigned int i = 0; i < maxTemp.size(); i++) {
+		oplMax.add(Point{ origo.x + static_cast<int>(i), origo.y - maxTemp[i] });
 	}
 	oplMax.set_color(Color::red);  
 	win.attach(oplMax);
 
 	Open_polyline oplMin;
-	for (int i = 0; i < minTemp.size(); i++) {
-		oplMin.add(Point{ origo.x + i, origo.y - minTemp[i] });
+	for (unsigned int i = 0; i < minTemp.size(); i++) {
+		oplMin.add(Point{ origo.x + static_cast<int>(i), origo.y - minTemp[i] });
 	}
 	oplMin.set_color(Color::blue);
 	win.attach(oplMin);
