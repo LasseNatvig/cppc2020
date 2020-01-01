@@ -39,7 +39,7 @@ int main() {
 	int ySpan = totalMax - totalMin; // no of degrees to span all of y-axis
 
 	Open_polyline oplMax;
-	for (int i = 0; i < maxTemp.size(); i++) {
+	for (unsigned int i = 0; i < maxTemp.size(); i++) {
 		int temp = maxTemp[i];
 		int xCoord = origo.x + ((i * 330) / 11);  // Can be simplified since 330/11 = 30, but is kept like this for readability !?
 		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
@@ -49,7 +49,7 @@ int main() {
 	win.attach(oplMax);
 
 	Open_polyline oplMin;
-	for (int i = 0; i < minTemp.size(); i++) {
+	for (unsigned int i = 0; i < minTemp.size(); i++) {
 		int temp = minTemp[i];
 		int xCoord = origo.x + ((i * 330) / 11);                      // Two lines equal to those for oplMax 
 		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
