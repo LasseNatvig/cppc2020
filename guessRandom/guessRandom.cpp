@@ -10,7 +10,7 @@ int getGuess(int min, int max); // Ask the user for a number between min and max
 void printGuess(int guess, int secret, int count); // Gives feedback 
 
 int main() {
-	setlocale(LC_ALL, "Norwegian");  // Makes printing Ã¦, Ã¸, Ã¥, Ã†, Ã˜ and Ã… possible
+	setlocale(LC_ALL, "Norwegian");  // Makes printing æ, ø, å, Æ, Ø and Å possible
 	srand(static_cast<int>(time(nullptr))); // Sets a seed for random number generator given by current time. Comment out 
 											// this statement if you want deterministic behaviour
 	int secret = (rand() % 10) + 1; // sets secret number using rand()
@@ -31,7 +31,7 @@ void printGuess(int guess, int secret, int count) {
 		cout << "Tallet er for lite" << endl;
 	}
 	else {
-		cout << "Du har gjettet riktig (pÃ¥ " << count << " forsÃ¸k)" << endl;
+		cout << "Du har gjettet riktig (på " << count << " forsøk)" << endl;
 	}
 }
 
