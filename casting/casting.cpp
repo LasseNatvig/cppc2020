@@ -1,9 +1,9 @@
  // casting.cpp - casting
 #include "std_lib_facilities.h"
-/* - these lines are needed if you do not include std_lib_facilities.h
-#include<iostream>
-#include<iomanip>
-using namespace std; */
+//  - these lines are needed if you do not include std_lib_facilities.h
+// #include<iostream>
+// #include<iomanip>
+// using namespace std;
 
 int main() {
 	int i = 2;
