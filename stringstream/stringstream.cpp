@@ -12,6 +12,7 @@ int main() {
 	double d1 = str_to_double("12.4");		// testing
 	double d2 = str_to_double("1.34e-3");
 	// double d3 = str_to_double("twelve point three"); // will call error()
+	cout << d1 << " " << d2 << endl;
 
 	int i = 123;
 	ostringstream oss;
