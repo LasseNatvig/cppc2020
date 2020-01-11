@@ -5,14 +5,16 @@
 
 int main() try {
 	setlocale(LC_ALL, "norwegian");
+	ofstream ofs{"MyFile.txt"};
+	ofs << "test\n";
 	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
 	Point topLeft{ 200, 300 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
 	cout << "... laster bykart\n";
 	//win.wait_for_button(); // debug
 
-	ifstream testFileExist{ cityFileName }; // opening file to check that it exists 
-	if (!testFileExist) error("can't open input file ", cityFileName); // Remember that error (from PPP) will throw an exception
+	ifstream testFileExists{ cityFileName }; // opening file to check that it exists 
+	if (!testFileExists) error("can't open input file ", cityFileName); // Remember that error (from PPP) will throw an exception
 		// we use error here since it allows us to report also the filename for the file we tried to open
 	Image cityMap{ Point{0,0}, cityFileName }; // The program hangs if file is not found, therefore we added the test above
 	win.attach(cityMap);

@@ -92,3 +92,17 @@ void updateSensors(Vector_ref<APSunit>& allSensors) {
 		cout << allSensors[i] << endl; // debug 
 	}
 }
+
+void APSunit::dummy() { // Dummy function using "unused variables" to avoid warnings
+	// Here it is natural with unused variables since it is an incomplete program
+	// It is a goal to let all example programs have zero warning
+	APSunit dummy(0, "dummy", "XXX", Point{0,0}, "xxx");
+	dummy.ozone = 0;
+	dummy.particulateMatter = 0; // we assume thay can all be measured as a positive integer
+	dummy.carbonMonoxide = 0;
+	dummy.sulfurDioxide = 0;
+	dummy.nitrousOxide = 0;
+	dummy.location = Point{0,0};
+	int dum = dummy.unitSerialNo;
+	if (dum) { dum = dum+1; }
+}

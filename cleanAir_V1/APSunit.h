@@ -4,7 +4,7 @@
 #include "Simple_window.h" 
 
 // The following constants will be placed in a config-file in a later version of cleanAir
-const string cityFileName = "../Trondheim.jpg";
+const string cityFileName = "Trondheim.JPG";
 constexpr int winWidth = 1310;  // is set wide enough to have the next button outside this actual city map
 constexpr int winHeigth = 900;  // two lines below shows how adjacent string literals are concatenated by the compiler 
 const string cityWinTitle = "Apparatur for måling av luftkvalitet i Trondheim"
@@ -34,6 +34,7 @@ class APSunit {
 	                      // The purpose of sensorId is to count the number of sensors we have to be able to assign identity numbers in sequence 
 	const int myId = 0; // An unique identity number (id) assigned to the sensors during initialization, cannot be changed
 	Vector_ref<Shape> display;
+	void dummy(); 
 public:
 	APSunit(int sno, string name, string tag, Point loc, string descr);
 	APSstate get_state() const { return state; };
