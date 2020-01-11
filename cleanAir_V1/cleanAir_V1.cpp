@@ -5,8 +5,9 @@
 #include "APSunit.h"
 
 int main() try {
-	SetConsoleOutputCP(1252);
-    SetConsoleCP(1252);
+	SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows)
+    SetConsoleCP(1252); // Makes printing æ, ø, å, Æ, Ø and Å possible. Remember to set file encoding to ISO 8859-10
+		// note modified line 30 and new line 31 in Makefile to avoid encoding-warnings
 	ofstream ofs{"MyFile.txt"};
 	ofs << "test\n";
 	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
