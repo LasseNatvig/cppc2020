@@ -1,13 +1,15 @@
 // cleanAir_V1 (Several files)
+#include <Windows.h>
 #include "Graph.h"
 #include "Simple_window.h" 
 #include "APSunit.h"
 
 int main() try {
-	setlocale(LC_ALL, "norwegian");
+	SetConsoleOutputCP(1252);
+    SetConsoleCP(1252);
 	ofstream ofs{"MyFile.txt"};
 	ofs << "test\n";
-	cout << "cleanAir bruker C++ for et bedre miljÃ¸!\n\n";
+	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
 	Point topLeft{ 200, 300 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
 	cout << "... laster bykart\n";
@@ -31,7 +33,7 @@ int main() try {
 
 	win.wait_for_button();// debug
 
-	cout << "... simulerer siste dÃ¸gn\n";
+	cout << "... simulerer siste døgn\n";
 	for (int hour = 0; hour < 24; hour++) {
 		Text time{ Point{200, 200}, "Time: " + to_string(hour) + ":00h" };
 		time.set_color(Color::dark_red);
