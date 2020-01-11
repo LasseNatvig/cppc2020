@@ -27,7 +27,9 @@ const map<APSstate, string> stateColortextMap{ // for log-window
 
 APSunit::APSunit(int sno, string name, string tag, Point loc, string descr)
 	: location{ loc }, name{ name }, nameTag{ tag }, description{ descr },
-	unitSerialNo{ sno }, myId{ ++sensorId } // Note that the value of myId is not initialized by an argument but by the static class member sensorId
+	unitSerialNo{ sno }, 
+	myId{ ++sensorId } // Note that the value of myId is not initialized 
+		// by an argument but by the static class member sensorId
 {
 	display.push_back(new Rectangle{ loc, APSwidth, APSheigth });
 	display[display.size() - 1].set_fill_color(
