@@ -13,6 +13,7 @@ void printGuess(int guess, int secret, int count); // Gives feedback
 int main() {
 	SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows)
     SetConsoleCP(1252); // Makes printing æ, ø, å, Æ, Ø and Å possible. Remember to set file encoding to ISO 8859-10
+		// note modified line 30 and new line 31 in Makefile to avoid encoding-warnings
 	srand(static_cast<int>(time(nullptr))); // Sets a seed for random number generator given by current time. Comment out 
 											// this statement if you want deterministic behaviour
 	int secret = (rand() % 10) + 1; // sets secret number using rand()

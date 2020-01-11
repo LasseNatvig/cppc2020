@@ -27,8 +27,8 @@ class APSunit {
 	unsigned int nitrousOxide = 0;
 	Point location{ 0,0 }; // The location as coordinates on the city map, can be updated
 	const string name; // Name of APS unit display on map, cannot be changed
-	string description; // Description of where to find the actual sensor when your are close to the location, can be updated via set_description();
 	const string nameTag; // Short three letter name, cannot be changed
+	string description; // Description of where to find the actual sensor when your are close to the location, can be updated via set_description();
 	const int unitSerialNo = 0; // serial number for the given unit, read from file, cannot be changed
 	static int sensorId;  // Must be initialized as global variable since it is static (shared for all objects)
 	                      // The purpose of sensorId is to count the number of sensors we have to be able to assign identity numbers in sequence 
