@@ -9,20 +9,16 @@ int main() try {
     SetConsoleCP(1252); // Makes printing æ, ø, å, Æ, Ø and Å possible. 
 		// Remember to set file encoding to Nordic (ISO 8859-10)
 		// note modified line 30 and new line 31 in Makefile to avoid encoding-warnings
-	ofstream ofs{"MyFile.txt"};
-	ofs << "test\n";
 	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
 	Point topLeft{ 200, 300 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
 	cout << "... laster bykart\n";
-	//win.wait_for_button(); // debug
-
+	
 	ifstream testFileExists{ cityFileName }; // opening file to check that it exists 
 	if (!testFileExists) error("can't open input file ", cityFileName); // Remember that error (from PPP) will throw an exception
 		// we use error here since it allows us to report also the filename for the file we tried to open
 	Image cityMap{ Point{0,0}, cityFileName }; // The program hangs if file is not found, therefore we added the test above
 	win.attach(cityMap);
-	//win.wait_for_button();// debug
 
 	Vector_ref<APSunit> allSensors;
 	cout << "... leser inn sensorer\n";
@@ -30,6 +26,7 @@ int main() try {
 	for (int i = 0; i < allSensors.size(); i++) {
 		allSensors[i].attach(win);
 	}
+
 	// for (auto sens: allSensors) sens->attach(win); 
 	// exactly the same loop as above, as a one-liner. Uusing auto, more compact. The -> operator is lectured later
 
