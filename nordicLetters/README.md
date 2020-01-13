@@ -1,6 +1,6 @@
 # Nordic letters from C++
 
-Note that this example and documentation is so far **only the Windows version**. We plan to add code and documentatio for macOS and linux at a later stage
+Note that this example and documentation is so far **only the Windows version**. We plan to add code and documentation for macOS and linux at a later stage.
 
 ## Introduction
 
@@ -11,7 +11,7 @@ The example code and documentation is for students following TDT4102 at NTNU Tro
 ## Details
 
 * Default encoding for files in our VS code setup is UTF-8, as shown in the blue line at the lower right corner of VS code.
-* When downloading the examplecode NordicLetters.cpp ensure that it is stored with the right encoding, which is ISO 8859-10. You can easily change the file encoding by clicking on the encoding (eg. UTF-8) and select **Save with encoding** from top of VS code, and in the input field type Nordic, it will give you the right ISO encoding as an option. In case you fail to do this the .cpp file can look like this [image](./Capture_1.PNG).
+* When downloading the examplecode [NordicLetters.cpp](NordicLetters.cpp) ensure that it is stored with the right encoding, which is ISO 8859-10. You can easily change the file encoding by clicking on the encoding (eg. UTF-8) and select **Save with encoding** from top of VS code, and in the input field type Nordic, it will give you the right ISO encoding as an option. In case you fail to do this the .cpp file can look like this [image](./Capture_1.PNG).
 * When compiling code containing Nordic letters you will get a lot of warnings dealing with character encoding from the compiler. These can be suppressed by the change of the **Makefile** as shown in [here](Makefile_Nordic_Encoding_Without_Warnings.PNG). (Add the \ at end of line 30, and insert new line 31. Note also that in general we ask students in the class to NOT do any changes to the Makefile).
 * If you for some reason change the order of line 23 and 24, so that Windows.h is included _after_ std_lib_facilities.h you wil probably get a lot of error-messages referring to 'byte' like those shown [here](Byte_errors.PNG). To avoid this, you can change line 34 in the Makefile as shown in yellow [here](Makefile_line_HAS_STD_BYTE.PNG).
 * This C++ program writes and reads a file MyFile.txt. If you open it with VS code it will by default be opened as UTF-8 and it looks bad, as you can see [here](MyFile_as_UTF-8.PNG). This is fixed by changing its encoding, but this time using **Reopen with encoding**.
@@ -20,8 +20,8 @@ The example code and documentation is for students following TDT4102 at NTNU Tro
 
 * Similar functionality and documentation for macOS
 * Similar functionality and documentation for linux
-* Code for all thre eplatforms integrated in one file using #ifdefs, or a more elegant solution
+* Code for all three platforms integrated in one file using #ifdefs, or a more elegant solution
 
 ## Comments, suggestions
 
-Please send comments and suggestions to Lasse@computer.org
+Please send comments and suggestions to [Lasse](https://www.ntnu.edu/employees/lasse.natvig)
