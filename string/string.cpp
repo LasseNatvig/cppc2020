@@ -6,7 +6,8 @@ int main() {
 	cin >> name; // read a string from cin (console in, keyboard)
 	string s1 = "Hello"; // sets s1 to Hello, very common syntax
 	string s1a { "Hello2" }; // alternative, recommended syntax
-	string s2(",have a nice day!"); // sets s2 to a longer text-string, containing blanks. Also alternative syntax () instead of =
+	string s2(",have a nice day!"); // sets s2 to a longer text-string, containing blanks. 
+		// Also alternative syntax () instead of = or {}
 	string s3 = s1 + " " + name + s2; // + is defined as a concatenate operator for string
 	cout << "1) " << s3 << endl;  
 
