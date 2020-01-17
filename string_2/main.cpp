@@ -3,7 +3,7 @@
 int main() {
 	//*****************************************************
 	// A) Correct use of string
-	string str1 = "ABCDEF";  //
+	string str1{"ABCDEF"};  //
 	for (unsigned int i = 3; i < str1.size(); ++i) {
 		str1[i] = '*';
 	}
@@ -15,7 +15,7 @@ int main() {
 	// https://en.cppreference.com/w/cpp/string/basic_string/operator_at 
 	// States that if index in [index] is greater or equal to size() the result is undefined
 	// This is UNSAFE CODE
-	string str2 = "ABCDEF"; // 
+	string str2{"ABCDEF"}; // 
 	for (unsigned int i = 3; i <= str2.size(); ++i) {
 		str2[i] = '*';
 	}

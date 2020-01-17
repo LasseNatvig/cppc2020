@@ -2,7 +2,7 @@
 #include "std_lib_facilities.h"
 int main() {
 	//**************************************************
-	// part a) Uninitialized variables, MS-Visual Studio gives error message for these
+	// part a) Uninitialized variables, MS-Visual Studio (used in 2019) gives error message for these
 	// MS-VS Code, used in the 2020 course allows these, but gives good warnings and advice for improving the code
 	
 	int x;		// could get a “random” initial value on some compilers, is set to 0 by VS code
@@ -16,7 +16,7 @@ int main() {
 	// Part b) Implicit narrowing, from PPP 3.9.2
 	{
 		int a = 20000;
-		char c = a;  
+		char c = a;  // narrowing conversion, not good
 		int b = c;
 		if (a != b)	{    	//  != means “not equal”
 			cout << "Oops: " << a << " != " << b << '\n';
@@ -40,9 +40,9 @@ int main() {
 		double x{ 2.7 }; // OK
 		// int y{ x }; // VS code: error: type 'double' cannot be narrowed to 'int' in initializer list
 		int a{ 40 }; // OK
-		// char b{ a }; // VS code: error: non-constant-expression cannot be narrowed from type 'int' to 'char' in initializer list
-
-		// char b1{ 1000 }; // VS code:  error: constant expression evaluates to 1000 which cannot be narrowed to type 'char' 
+		//char b{ a }; // VS code: error: non-constant-expression cannot be narrowed from type 'int' to 'char' in initializer list
+		char bb1 = 1000; // not good, allowed, but gives warning
+		char b1{ 1000 }; // VS code:  error: constant expression evaluates to 1000 which cannot be narrowed to type 'char' 
 		char b2{ 48 }; // OK
 		cout << endl;
 	}

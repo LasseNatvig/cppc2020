@@ -21,7 +21,7 @@ int main() {
 
 	// a)
 	cout << "The numbers are:\n";
-	for (unsigned int i = 0; i < numbers.size(); i++) { 
+	for (int i = 0; i < numbers.size(); i++) { 
 		cout << numbers[i] << " ";
 	}
 
