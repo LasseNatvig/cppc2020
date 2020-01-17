@@ -34,11 +34,11 @@ int yCoord(Point origo, int temp, int totalMin, int ySpan) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, " Example graph_3 ");
-	Axis xa(Axis::x, origo, xAxisSize, maxMonthNo, "Month (August 2017 .. July 2018)");
+	Simple_window win{tl, 400, 300, " Example graph_3 "};
+	Axis xa{Axis::x, origo, xAxisSize, maxMonthNo, "Month (August 2017 .. July 2018)"};
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
-	Axis ya(Axis::y, origo, yAxisSize, 7, "Celsius (-5 .. +25)");
+	Axis ya{Axis::y, origo, yAxisSize, 7, "Celsius (-5 .. +25)"};
 	win.attach(ya); // attach ya
 	ya.set_color(Color::black);
 
