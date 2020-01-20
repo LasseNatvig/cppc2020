@@ -3,8 +3,8 @@
 
 class Person {
 private:
-	string ssn;  //social security number
 	string name;
+	string ssn;  //social security number
 public:
 	Person(const string &name, const string &ssn)
 		: name{ name }, ssn{ ssn } {};
