@@ -22,7 +22,7 @@ int main() {
 	// a)
 	cout << "The numbers are:\n";
 	for (int i = 0; i < numbers.size(); i++) { 
-		cout << numbers[i] << " ";
+		cout << numbers[i] << " ";  
 	}
 
 	// b)
