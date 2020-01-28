@@ -13,7 +13,7 @@ Date::Date(int y, int m, int d) { // check for valid date and initialize
 	cout << "checking valid date NOT completely implemented\n";
 	// But see exam May 2018 problem 2a..2e 
 	if (d > 31) {
-		throw exception("Invalid date passed to constructor"); // gives error message
+		throw runtime_error("Invalid date passed to constructor"); 
 	}
 	else {
 		year = y;
@@ -47,9 +47,10 @@ Date_s::Date_s(int y, int m, int d) : year{ y }, month{ m }, day{ d } {
 	// This constructor should check that (y, m, d) is a valid date
 	cout << "checking valid date NOT completely implemented\n";
 	if (d > 31) {
-		throw exception("Invalid date passed to constructor");
+		throw runtime_error("Invalid date passed to constructor");  
 	}
 	// The created Date_s object is OK
+
 }
 
 void Date_s::add_day(int n) {	// increase the Date by n days
@@ -59,7 +60,7 @@ void Date_s::add_day(int n) {	// increase the Date by n days
 int main() try {
 	// (1)
 	// Date my_birthday; // error: no default contructor
-	// Date today{ 12, 24, 2007 };  // gives run time error (exception)
+	Date today{ 12, 24, 2007 };  // gives run time error (exception)
 	Date last{ 2000, 12, 31 }; // OK, recommended style
 	Date next = { 2014, 2, 14 }; // slightly verbose, acceptable but not so good
 	Date christmas = Date{ 1976, 12, 24 }; // verbose, acceptable but not so good
