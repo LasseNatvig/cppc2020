@@ -46,7 +46,7 @@ Date_s::Date_s(int y, int m, int d) : year{ y }, month{ m }, day{ d } {
 	// above line uses so called (member) initializer list (PPP 9.4.4)
 	// This constructor should check that (y, m, d) is a valid date
 	cout << "checking valid date NOT completely implemented\n";
-	if (d > 31) {
+	if (day > 31) {  
 		throw runtime_error("Invalid date passed to constructor");  
 	}
 	// The created Date_s object is OK
@@ -59,8 +59,8 @@ void Date_s::add_day(int n) {	// increase the Date by n days
 
 int main() try {
 	// (1)
-	// Date my_birthday; // error: no default contructor
-	Date today{ 12, 24, 2007 };  // gives run time error (exception)
+	//Date my_birthday; // error: no default contructor
+	//Date today{ 12, 24, 2007 };  // gives run time error (exception)
 	Date last{ 2000, 12, 31 }; // OK, recommended style
 	Date next = { 2014, 2, 14 }; // slightly verbose, acceptable but not so good
 	Date christmas = Date{ 1976, 12, 24 }; // verbose, acceptable but not so good
@@ -75,7 +75,7 @@ int main() try {
 	print_day(christmas);
 	christmas.month = 14; // Free access to member variable in struct date makes it easy to produce an illegal date.
 	// Imagine much later, in another part of a huge program, after hours of execution you will print it ... ("Time bomb")
-	// print_day(christmas);  // run-time error
+	print_day(christmas);  // run-time error
 
 	//************************
 	// (3)

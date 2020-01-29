@@ -6,7 +6,7 @@
 #include<cassert>
 using namespace std;
 
-// Declares two functions that are defined below, after main()
+// Declares two functions that are defined below, after main(). (called forward declaration)
 int getGuess(int min, int max); // Ask the user for a number between min and max 
 void printGuess(int guess, int secret, int count); // Gives feedback 
 
