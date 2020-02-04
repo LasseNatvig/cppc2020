@@ -1,10 +1,9 @@
 // cleanAir_V1 (Several files)
 
 // Only include Windows.h for Windows builds
-#ifdef _WIN32
+#ifdef _WIN32  
 #include <Windows.h>
 #endif
-#include <Windows.h>
 #include "Graph.h"
 #include "Simple_window.h" 
 #include "APSunit.h"
@@ -35,7 +34,7 @@ int main() try {
 	}
 
 	// for (auto sens: allSensors) sens->attach(win); 
-	// exactly the same loop as above, as a one-liner. Uusing auto, more compact. The -> operator is lectured later
+	// exactly the same loop as above, as a one-liner. Using auto, more compact. The -> operator is lectured later
 
 	win.wait_for_button(); // debug
 

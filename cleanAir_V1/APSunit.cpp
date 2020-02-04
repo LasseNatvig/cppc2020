@@ -55,7 +55,7 @@ bool APSunit::set_description(const string s) {
 	return true;
 }
 void APSunit::set_state(const APSstate s) { 
-	state = s; // NOTE, the following is unsafe programming. We assume that the first shape added to display in the constructor is the rectangle
+	state = s; // NOTE, the following is very unsafe programming. We assume that the first shape added to display in the constructor is the rectangle
 	display[0].set_fill_color(textToColorMap.at(stateColortextMap.at(s)));
 }
 ostream& operator<<(ostream& os, APSunit& unit) {
@@ -64,7 +64,7 @@ ostream& operator<<(ostream& os, APSunit& unit) {
 }
 void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) {
 	ifstream sensFile{ sensorsFileName };
-	if (sensFile.fail()) throw exception("Error opening file!");
+	if (sensFile.fail()) throw runtime_error("Error opening file!");
 	else { // Declare variables as local as possible
 		string name; // the short name
 		string tla; // nameTag. tla means Three Letter Abbreviation (TBF in Norwegian)
@@ -83,7 +83,7 @@ void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) 
 		}
 	}
 }
-APSstate magicReadState() { // simulates reading data an determination of state
+APSstate magicReadState() { // simulates reading data and determination of state
 	return static_cast<APSstate>( rand() % ((static_cast<int>(APSstate::flaky) - 
 										     static_cast<int>(APSstate::unknown)) + 1));
 }
@@ -97,7 +97,7 @@ void updateSensors(Vector_ref<APSunit>& allSensors) {
 
 void APSunit::dummy() { // Dummy function using "unused variables" to avoid warnings
 	// Here it is natural with unused variables since it is an incomplete program
-	// It is a goal to let all example programs have zero warning
+	// It is a goal to let all example programs have zero warnings, therefore this dummy function
 	APSunit dummy(0, "dummy", "XXX", Point{0,0}, "xxx");
 	dummy.ozone = 0;
 	dummy.particulateMatter = 0; // we assume thay can all be measured as a positive integer
