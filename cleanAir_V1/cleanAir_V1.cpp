@@ -1,14 +1,21 @@
 // cleanAir_V1 (Several files)
+
+// Only include Windows.h for Windows builds
+#ifdef _WIN32
+#include <Windows.h>
+#endif
 #include <Windows.h>
 #include "Graph.h"
 #include "Simple_window.h" 
 #include "APSunit.h"
 
 int main() try {
-	SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows)
+	#ifdef _WIN32
+    SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows)
     SetConsoleCP(1252); // Makes printing æ, ø, å, Æ, Ø and Å possible. 
 		// Remember to set file encoding to Nordic (ISO 8859-10)
 		// note modified line 30 and new line 31 in Makefile to avoid encoding-warnings
+	#endif
 	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
 	Point topLeft{ 200, 300 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
