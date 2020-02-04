@@ -37,7 +37,7 @@ int main() try {
 	// for (auto sens: allSensors) sens->attach(win); 
 	// exactly the same loop as above, as a one-liner. Uusing auto, more compact. The -> operator is lectured later
 
-	win.wait_for_button();// debug
+	win.wait_for_button(); // debug
 
 	cout << "... simulerer siste døgn\n";
 	for (int hour = 0; hour < 24; hour++) {
