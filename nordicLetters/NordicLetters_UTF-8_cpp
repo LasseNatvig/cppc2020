@@ -33,36 +33,36 @@
 int main(){
 	#ifdef _WIN32
     SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows)
-    SetConsoleCP(1252); // Makes printing æ, ø, å, Æ, Ø and Å possible. 
+    SetConsoleCP(1252); // Makes printing Ã¦, Ã¸, Ã¥, Ã†, Ã˜ and Ã… possible. 
 		// Remember to set file encoding to Nordic (ISO 8859-10)
 		// note modified line 30 and new line 31 in Makefile to avoid encoding-warnings
 	#endif
 
     string fileString{""};
-    cout << "Hva vil du skrive til filen?\nPrøv gjerne også Nordiske bokstaver som"
-    << "f.eks 'ö', 'ï' og selvfølgelig 'æøå': ";
+    cout << "Hva vil du skrive til filen?\nPrÃ¸v gjerne ogsÃ¥ Nordiske bokstaver som"
+    << "f.eks 'Ã¶', 'Ã¯' og selvfÃ¸lgelig 'Ã¦Ã¸Ã¥': ";
     cin >> fileString;
     ofstream ofs{"MyFile.txt"};
-    ofs << "Denne teksten kommer direkte fra kildekode til fil: 'æøåÆØÅ'\n\n";
-    ofs << "Nå kommer teksten du selv skrev inn i konsollen: \n" << fileString << "\n";
-    ofs << "Det ser ut som at dette fungerte som ønsket ";
+    ofs << "Denne teksten kommer direkte fra kildekode til fil: 'Ã¦Ã¸Ã¥Ã†Ã˜Ã…'\n\n";
+    ofs << "NÃ¥ kommer teksten du selv skrev inn i konsollen: \n" << fileString << "\n";
+    ofs << "Det ser ut som at dette fungerte som Ã¸nsket ";
     ofs.close();
     cout << "\n__________________________________________________________________________\n";
-    cout << "\nNå skal du få tilbake innholdet i filen for å se at lesing fra fil fungerer: \n\n";
+    cout << "\nNÃ¥ skal du fÃ¥ tilbake innholdet i filen for Ã¥ se at lesing fra fil fungerer: \n\n";
     ifstream ifs{"MyFile.txt"};
     while(getline(ifs,fileString)) {
         cout << fileString << "\n";
     }
 
     cout << "\n__________________________________________________________________________\n";
-    string b = "Dette er en test på å skrive til konsoll fra kildekode: 'æøåÆØÅöäïÖÄÏ'\n";
+    string b = "Dette er en test pÃ¥ Ã¥ skrive til konsoll fra kildekode: 'Ã¦Ã¸Ã¥Ã†Ã˜Ã…Ã¶Ã¤Ã¯Ã–Ã„Ã'\n";
     cout << b;
 
     cout << "\n__________________________________________________________________________\n";
     cout << "Siste test er direkte ekko fra input til output: \n";
     string consoleString{""};
     while(consoleString != "q"){
-        cout << "Tast inn dine bokstaver, 'q' for å avslutte: ";
+        cout << "Tast inn dine bokstaver, 'q' for Ã¥ avslutte: ";
         cin >> consoleString;
         cout << consoleString << "\n";
     }
