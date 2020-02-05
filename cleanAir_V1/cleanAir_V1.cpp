@@ -51,8 +51,6 @@ int main() try {
 	}
 }
 
-	// test changing description 
-
 catch (exception& e) {
 	cerr << e.what();
 	keep_window_open();
@@ -63,4 +61,3 @@ catch (...) {
 	keep_window_open();
 	return 2;
 }
-
