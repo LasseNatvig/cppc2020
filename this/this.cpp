@@ -25,6 +25,7 @@ set<const Person*> Person::oldPersons;  // static member variable is one common 
 	// objects of the class and must be initialized outside the class declaration.
 
 void Person::listOld() {
+	cout << "Old: ";
 	for (auto p : oldPersons) {
 		cout << p->age << " "; // arrow-notation for the object that p points at 
 		// cout << (*p).age << " ";  // This is equivalent with the line above

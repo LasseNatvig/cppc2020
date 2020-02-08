@@ -107,7 +107,10 @@ try {
 		printVector(v2);
 		cout << endl;
 		myVector dummy = v;  // TODO LN ask LAE 
+		cout << v[0];
 		dummy = v2;
+		cout << v2[0];
+
 	}
 
 	// Test initializer list
