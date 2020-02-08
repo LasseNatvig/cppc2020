@@ -66,6 +66,7 @@ try {
 
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;
+	return 0;
 }
 catch (exception& e) {
 	cerr << "error: " << e.what() << endl;

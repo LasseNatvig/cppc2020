@@ -40,6 +40,6 @@ int main() {
 		p1.listOld();
 	}
 	p2.listOld(); // access via . (dot) operator, p2 is a named object
-	//p3.listOld();  // error, why?
+	// p3.listOld();  // error, why?
 	return 0;
 }

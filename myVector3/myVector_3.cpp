@@ -106,6 +106,8 @@ try {
 		v2 = v;  // v2 already exist, so copy constructor is not used, but assignment operator= is used
 		printVector(v2);
 		cout << endl;
+		myVector dummy = v;  // TODO LN ask LAE 
+		dummy = v2;
 	}
 
 	// Test initializer list
@@ -142,6 +144,7 @@ try {
 
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;
+	return 0;
 }
 catch (myVectorRangeError& e) {
 	cerr << "Range error in myVector at index: " 
