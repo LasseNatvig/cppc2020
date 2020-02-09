@@ -1,4 +1,4 @@
- /* myVector_2.cpp, note this is an "empty project" without the PPP scaffolding
+ /* myVector_2.cpp
   The example shows the early steps towards a proper implementation of vector,
   it builds on myVector_1.cpp. Some codelines are commented only or in more detail 
   in the myVector_1.cpp since we expect the reader to study example by example.
@@ -43,10 +43,11 @@ try {
 	setVector(doubleVec);
 	printVector(doubleVec);
 	
-	//// demonstrate memory leakage
-	//cout << "One double is " << sizeof(double) << " bytes\n";
-	//for (int i = 0; i < 1000; i++)
-	//	memoryLeak(1000000);
+	// // demonstrate memory leakage
+	// cout << "One double is " << sizeof(double) << " bytes\n";
+	// for (int i = 0; i < 3000; i++)
+	// 	memoryLeak(1000000);
+	cout << endl;
 
 	{ // demonstrate the danger of C-arrays not being range-checked
 		myVector test(10);

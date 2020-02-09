@@ -1,6 +1,6 @@
  // cArrays.cpp
 // - demonstrates 1D and 2D C-arrays
-#include <iostream>
+#include<iostream>
 #include<iomanip> // needed for setw() and setfill()
 using namespace std;
 
@@ -26,21 +26,21 @@ void normalAccessGlobalArr() { /* Demonstrates access to a global array. It is k
 }
 
 void localArr(int n) {
-	int localInts[sizeA]; // local array, is NOT initialized
+	int localInts[sizeA]; // local array, is NOT initialized, random values
 	for (int i : localInts) {
 		cout << i << " ";
 	}
 	cout << endl;
-	char localChars[4*2]; // local array, is NOT initialized
+	char localChars[4*2]; // local array, is NOT initialized, random values
 	for (auto c : localChars) {
 		cout << c << " ";
 	}
-	// double localDoubles[n]; // error, array size not a constant
+	// double localDoubles[n]; // error, value of parameter "n" cannot be used as constant
 }
 
 void arrayInit() { // PPP 18.6.3.
 	int ai[] = { 1, 2, 3, 4, 7 }; // size is given by init. list
-	//int bi[] = {}; // error, size unknown
+	//int bi[] = {}; // error, empty initializer is invalid for an array with unspecified bound
 	int ci[4] = {}; // OK, since we know the size, elements filled with 0'es
 	int di[4] = { 1,2 }; // OK, result is {1, 2, 0, 0}
 }
