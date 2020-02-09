@@ -30,7 +30,7 @@ public:
 	void set(int n, double v) { elem[n] = v; }
 	myVector(initializer_list<double> lst);   // initializer-list constructor
 	double& operator[](int i) { return elem[i]; }  // unchecked access via []
-	double operator[](int i) const { return elem[i]; }   // unchecked const access via []
+	double& operator[](int i) const { return elem[i]; }   // unchecked const access via []
 	double& at(int i); // checked access
 	const double& at(int i) const; // checked const access
 };
@@ -110,7 +110,6 @@ try {
 		cout << v[0];
 		dummy = v2;
 		cout << v2[0];
-
 	}
 
 	// Test initializer list
@@ -131,7 +130,7 @@ try {
 			cout << v[i];
 		}
 		cout << endl;
-		// test operator[ ] const
+		// test operator[] const
 		myVector const vReadOnly{ 8, 9, 11 };
 		for (int i = 0; i < vReadOnly.size(); ++i) {
 			cout << vReadOnly[i];
