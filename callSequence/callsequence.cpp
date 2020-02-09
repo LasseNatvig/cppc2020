@@ -55,7 +55,6 @@ public:
 		cout << "Student - destructor" << endl;
 	}
 
-
 	//Student& operator=(Student rhs) { // with copy-and-swap
 	//	Person::operator=(rhs);
 	//	swap(id, rhs.id);
@@ -68,7 +67,7 @@ public:
 };
 
 int main() {
-	setlocale(LC_ALL, "Norwegian");
+	//{
 	cout << endl << "Constructs Person objects a og c" << endl;
 	Student a{ "a", 100 };
 	Student c{ "c", 300 };
@@ -84,5 +83,7 @@ int main() {
 	cout << "d: " + d.toString();
 
 	cout << endl << "Leaves scope" << endl;
+
+	//}
 	return 0;
 }

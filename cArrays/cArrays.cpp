@@ -56,21 +56,20 @@ int sumArray(int arr[], int n) {  // a classical function
 }
 
 void twoDimensional() {
-	const int m = 4;
+	constexpr int m = 4;
 	int twoDim[m][m]; // a 4 x 4 array of int
 	for (int i = 0; i < m; i++) // set values
 		for (int j = 0; j < m; j++)
 			twoDim[i][j] = (i + 1) * 1000 + j;
 
 	for (int i = 0; i < m; i++) { // print
-		cout << setw(6) << setfill('0');
+		cout << setw(6);  
 		cout << "\n i = " << i << " : ";
 		for (int j = 0; j < m; j++)
 			cout << twoDim[i][j] << " ";
 	}
 	cout << endl;
 }
-
 
 void cStrings() {
 	char a[] = "abcde"; // C-strings are indexed from 0
@@ -86,8 +85,8 @@ void outOfRangeAccess() {
 		<< globalA[2000] << endl;
 	cout << "Even worse: ";
 	globalA[-10] = 8888; globalA[2000] = 9999;
-	cout << "Dangerous out of range read: " << globalA[-10] << " "
-		<< globalA[2000] << endl;
+	cout << "Out of range read after dangerous writing: " 
+	     << globalA[-10] << " " << globalA[2000] << endl;
 }
 
 void testArrays() {
@@ -117,7 +116,7 @@ void testArrays() {
 
 	//-----------------------------------------------------
 	// Typical handling of array of unknown size
-	const int n = 4;
+	constexpr int n = 4;
 	int arr[n] = { 1,2,3,100 };
 	cout << sumArray(arr, n) << endl;
 
