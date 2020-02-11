@@ -137,9 +137,11 @@ int main() try {
 }
 catch (exception& e) {
 	cerr << "error: " << e.what() << endl;
+	char c; cin >> c;
 	return -1;
 }
 catch (...) {
 	cerr << "error: unknown exception";
+	char c; cin >> c;
 	return -2;
 }

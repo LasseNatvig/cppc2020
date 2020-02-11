@@ -47,7 +47,7 @@ try {
 	// cout << "One double is " << sizeof(double) << " bytes\n";
 	// for (int i = 0; i < 3000; i++)
 	// 	memoryLeak(1000000);
-	cout << endl;
+	// cout << endl;
 
 	{ // demonstrate the danger of C-arrays not being range-checked
 		myVector test(10);

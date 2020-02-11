@@ -99,17 +99,14 @@ try {
 	}
 
 	// Test copy assignment
-	{
-		myVector v(3);
-		v.set(2, 2.2);
-		myVector v2(4);
-		v2 = v;  // v2 already exist, so copy constructor is not used, but assignment operator= is used
-		printVector(v2);
+	{ // we should be able to use v and v2 as variables names also in this block, but for
+	  // some reasons (bug?) VS Code will not show v and v2 values in debugger. Therefore x and x2
+		myVector x(3);
+		x.set(2, 2.2);
+		myVector x2(4);
+		x2 = x;  // x2 already exist, so copy constructor is not used, but assignment operator= is used
+		printVector(x2);
 		cout << endl;
-		myVector dummy = v;  // TODO LN ask LAE 
-		cout << v[0];
-		dummy = v2;
-		cout << v2[0];
 	}
 
 	// Test initializer list

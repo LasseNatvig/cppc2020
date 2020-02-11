@@ -1,7 +1,7 @@
  // Example program GUI_1, main.cpp, simple GUI elements  - commented
 
 // The following pragma turns off the console, under windows
-// #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 
 #include "GUI.h"
 #include "Graph.h"
