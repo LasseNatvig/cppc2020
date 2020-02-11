@@ -23,7 +23,7 @@ public:
 		for (int i = 0; i < sz; i++) elem[i] = 0.0; // initialize
 	}
 	myVector(const myVector&);	// copy constructor: defined below
-	myVector& operator=(const myVector& arg); // copy assignment: defined below 
+	//myVector& operator=(const myVector& arg); // copy assignment: defined below 
 	~myVector() { delete[] elem; } // destructor
 	int size() const { return sz; }	// the current size
 	double get(int n) const { return elem[n]; } // PPP 17.6
@@ -61,17 +61,17 @@ myVector::myVector(const myVector& arg)
 	}
 }
 
-myVector& myVector::operator=(const myVector& arg)
-// like copy constructor, but we must deal with old elements
-// make a copy of arg then replace the current sz and elem with a’s
-{
-	double* p = new double[arg.sz];	// allocate new space
-	for (int i = 0; i < arg.sz; ++i) p[i] = arg.elem[i]; // copy elements
-	delete[] elem;	// deallocate old space
-	sz = arg.sz; // set new size
-	elem = p; // set new elements
-	return *this; //  return a self-reference
-}
+// myVector& myVector::operator=(const myVector& arg)
+// // like copy constructor, but we must deal with old elements
+// // make a copy of arg then replace the current sz and elem with a’s
+// {
+// 	double* p = new double[arg.sz];	// allocate new space
+// 	for (int i = 0; i < arg.sz; ++i) p[i] = arg.elem[i]; // copy elements
+// 	delete[] elem;	// deallocate old space
+// 	sz = arg.sz; // set new size
+// 	elem = p; // set new elements
+// 	return *this; //  return a self-reference
+// }
 
 void useVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
@@ -98,9 +98,10 @@ try {
 		cout << endl;
 	}
 
+    // We should be able to use v and v2 as variables names also in the block below, but for
+	// some reasons (bug?) VS Code will not show v and v2 values in debugger. Therefore x and x2
 	// Test copy assignment
-	{ // we should be able to use v and v2 as variables names also in this block, but for
-	  // some reasons (bug?) VS Code will not show v and v2 values in debugger. Therefore x and x2
+	{ 
 		myVector x(3);
 		x.set(2, 2.2);
 		myVector x2(4);
