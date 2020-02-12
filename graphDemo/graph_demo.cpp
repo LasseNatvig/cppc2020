@@ -39,5 +39,4 @@ int main() {
 	win.attach(test);
 	win.wait_for_button(); // will draw all Shapes attached to win, and for the 
 		// TestClass object named test the draw_lines function of Shape will be called
-
 }
