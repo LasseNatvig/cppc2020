@@ -8,7 +8,7 @@ MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ t
 	start_button{ Point{10, 10}, 70, 20, "Start", cb_start },
 	quit_button{ Point{x_max() - 80, 10}, 70, 20, "Quit", cb_quit },
 	end_button{ Point{10, 40}, 70, 20, "End", cb_end },
-	name(title),
+	name{title},
 	colorMenu{ Point{x_max() - 80, 40}, 70, 20, Menu::vertical, "color" },
 	noOfDiscs{ Point{160, 10}, 50, 20, "discs"},
 	radius{ Point{130, 40}, 80, 20, "radius"} 
