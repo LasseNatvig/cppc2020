@@ -3,7 +3,7 @@
 #include "Graph.h"
 #include "MyWindow.h"
 using namespace Graph_lib;
-// sorry for magic numbers and non-scalable layout
+// sorry for magic numbers and somewhat non-scalable layout
 MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ topLeft, w, h, title },
 	start_button{ Point{10, 10}, 70, 20, "Start", cb_start },
 	quit_button{ Point{x_max() - 80, 10}, 70, 20, "Quit", cb_quit },
@@ -24,6 +24,7 @@ MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ t
 	attach(noOfDiscs); noOfDiscs.hide();
 	attach(radius); radius.hide();
 }
+
 void MyWindow::start() {
 	cout << name + ": start called\n";
 	colorMenu.show();
@@ -31,6 +32,7 @@ void MyWindow::start() {
 	noOfDiscs.show();	
 	radius.show();
 }
+
 void MyWindow::end() {
 	cout << name + ": end called\n";
 	colorMenu.hide();
