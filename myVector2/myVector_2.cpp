@@ -1,7 +1,7 @@
  /* myVector_2.cpp
   The example shows the early steps towards a proper implementation of vector,
   it builds on myVector_1.cpp. Some codelines are commented only or in more detail 
-  in the myVector_1.cpp since we expect the reader to study example by example.
+  in myVector_1.cpp since we expect the reader to study example by example.
   - the definition of the constructor of myVector is here moved inline 
   - example is used in lecture to demonstrate memory leak, to motivate 
     the concept destructor, and the danger of C-arrays not being range-checked.
@@ -24,13 +24,15 @@ public:
 };
 
 void setVector(myVector& v) {
-	for (int i = 0; i < v.size(); i++)
+	for (int i = 0; i < v.size(); i++) 
 		v.set(i, static_cast<double>(sqrt(i)));
 }
 
 void printVector(myVector& v) {
-	for (int i = 0; i < v.size(); i++)
+	for (int i = 0; i < v.size(); i++) {
 		cout << v.get(i) << " "; 
+	}
+	cout << endl;
 }
 void memoryLeak(int x) {
 	myVector v(x);
@@ -45,8 +47,9 @@ try {
 	
 	// // demonstrate memory leakage
 	// cout << "One double is " << sizeof(double) << " bytes\n";
-	// for (int i = 0; i < 3000; i++)
-	// 	memoryLeak(1000000);
+	// for (int i = 0; i < 3000; i++) {
+	// 	  memoryLeak(1000000);
+	// }
 	// cout << endl;
 
 	{ // demonstrate the danger of C-arrays not being range-checked
@@ -63,7 +66,7 @@ try {
 		v.set(2, 2.2);
 		myVector v2 = v;
 		cout << endl;
-	}					  // Program will crash when leaving scope
+	}	 // Program will crash when leaving scope
 
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;
