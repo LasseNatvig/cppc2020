@@ -9,7 +9,6 @@ int main(void) {
 	int N = 0;
 	int M = 0;
 	int num = 0;
-	long sum = 0;
 	map<int, int> histo;  // kind of "histogramming"
 	cin >> N >> M;
 	while (N--) { // read into map
