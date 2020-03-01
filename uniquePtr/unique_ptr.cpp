@@ -50,17 +50,17 @@ int main() {
 	ivPtr = make_vecOld();
 	ivPtr2 = ivPtr;
 	delete ivPtr;	
-	//delete ivPtr2;  // error, crash, multiple delete on same pointer
+	//delete ivPtr2;  // xmemory throws exception, multiple delete on same pointer
 
 	ivPtr = make_vecModern();
 	ivPtr2 = ivPtr;
 	delete ivPtr;
-	// delete ivPtr2; // will still crash
+	// delete ivPtr2; // xmemory still throws exception, multiple delete on same pointer
 
 	unique_ptr<vector<int>> uniPtr = make_vecBetter();
 	unique_ptr<vector<int>> uniPtr2;
 
-	//	uniPtr2 = uniPtr;  // error, not allowed, an unique_ptr must be kept UNIQUE!
+	// uniPtr2 = uniPtr;  // error, not allowed, an unique_ptr must be kept UNIQUE!
 	uniPtr2 = move(uniPtr); // transfer ownership of unique ptr 
 	// value of uniPtr is now unspecified
 	auto uPtr = move(uniPtr2);  // 
