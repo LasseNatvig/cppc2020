@@ -11,7 +11,7 @@ using namespace std;
 
 struct myVectorRangeError {
 	int wrongIndex;
-	myVectorRangeError(int i) : wrongIndex(i) {}
+	myVectorRangeError(int i) : wrongIndex{i} {}
 };
 
 class myVector {
@@ -30,9 +30,9 @@ public:
 	void set(int n, double v) { elem[n] = v; }
 	myVector(initializer_list<double> lst);   // initializer-list constructor
 	double& operator[](int i) { return elem[i]; }  // unchecked access via []
-	double operator[](int i) const { return elem[i]; }   // unchecked const access via []
+	const double& operator[](int i) const { return elem[i]; }   // unchecked const access via []
 	double& at(int i); // checked access
-	const double at(int i) const; // checked const access
+	const double& at(int i) const; // checked const access
 };
 
 myVector::myVector(initializer_list<double> lst) // initializer-list constructor
@@ -42,13 +42,12 @@ myVector::myVector(initializer_list<double> lst) // initializer-list constructor
 }
 
 double & myVector::at(int i) {
-	if (i < 0 || i >= sz) throw myVectorRangeError(i);
+	if (i < 0 || i >= sz) throw myVectorRangeError{i};
 	return elem[i];
 }
-const double myVector::at(int i) const {
-	if (i < 0 || i >= sz) throw myVectorRangeError(i);
+const double& myVector::at(int i) const {
+	if (i < 0 || i >= sz) throw myVectorRangeError{i};
 	return elem[i];
-
 }
 
 myVector::myVector(const myVector& arg)
