@@ -23,16 +23,16 @@ public:
 		for (int i = 0; i < sz; i++) elem[i] = 0.0; // initialize
 	}
 	myVector(const myVector&);	// copy constructor: defined below
-	//myVector& operator=(const myVector& arg); // copy assignment: defined below 
+	myVector& operator=(const myVector& arg); // copy assignment: defined below 
 	~myVector() { delete[] elem; } // destructor
 	int size() const { return sz; }	// the current size
 	double get(int n) const { return elem[n]; } // PPP 17.6
 	void set(int n, double v) { elem[n] = v; }
 	myVector(initializer_list<double> lst);   // initializer-list constructor
 	double& operator[](int i) { return elem[i]; }  // unchecked access via []
-	double& operator[](int i) const { return elem[i]; }   // unchecked const access via []
+	double operator[](int i) const { return elem[i]; }   // unchecked const access via []
 	double& at(int i); // checked access
-	const double& at(int i) const; // checked const access
+	const double at(int i) const; // checked const access
 };
 
 myVector::myVector(initializer_list<double> lst) // initializer-list constructor
@@ -45,7 +45,7 @@ double & myVector::at(int i) {
 	if (i < 0 || i >= sz) throw myVectorRangeError(i);
 	return elem[i];
 }
-const double & myVector::at(int i) const {
+const double myVector::at(int i) const {
 	if (i < 0 || i >= sz) throw myVectorRangeError(i);
 	return elem[i];
 
@@ -61,17 +61,17 @@ myVector::myVector(const myVector& arg)
 	}
 }
 
-// myVector& myVector::operator=(const myVector& arg)
-// // like copy constructor, but we must deal with old elements
-// // make a copy of arg then replace the current sz and elem with a’s
-// {
-// 	double* p = new double[arg.sz];	// allocate new space
-// 	for (int i = 0; i < arg.sz; ++i) p[i] = arg.elem[i]; // copy elements
-// 	delete[] elem;	// deallocate old space
-// 	sz = arg.sz; // set new size
-// 	elem = p; // set new elements
-// 	return *this; //  return a self-reference
-// }
+myVector& myVector::operator=(const myVector& arg)
+// like copy constructor, but we must deal with old elements
+// make a copy of arg then replace the current sz and elem with a’s
+{
+	double* p = new double[arg.sz];	// allocate new space
+	for (int i = 0; i < arg.sz; ++i) p[i] = arg.elem[i]; // copy elements
+	delete[] elem;	// deallocate old space
+	sz = arg.sz; // set new size
+	elem = p; // set new elements
+	return *this; //  return a self-reference
+}
 
 void useVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
