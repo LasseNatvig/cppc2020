@@ -60,7 +60,9 @@ int main() {
 	unique_ptr<vector<int>> uniPtr = make_vecBetter();
 	unique_ptr<vector<int>> uniPtr2;
 
-	// uniPtr2 = uniPtr;  // error, not allowed, an unique_ptr must be kept UNIQUE!
+	// uniPtr2 = uniPtr;  // error: overload resolution selected deleted operator '='. This means that operator= is deleted for unique_ptr to 
+	  // avoid the possibility of making a copy 
+	  // 
 	uniPtr2 = move(uniPtr); // transfer ownership of unique ptr 
 	// value of uniPtr is now unspecified
 	auto uPtr = move(uniPtr2);  // 

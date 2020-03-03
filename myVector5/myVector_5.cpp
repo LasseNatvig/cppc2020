@@ -13,7 +13,7 @@ using namespace std;
 
 struct myVectorRangeError {
 	int wrongIndex;
-	myVectorRangeError(int i) : wrongIndex(i) {}
+	myVectorRangeError(int i) : wrongIndex{i} {}
 };
 
 template<typename T>
@@ -146,18 +146,20 @@ try {
 
 	// demonstrate move constructor and assignment
 	cout << "\nCase a:";
-	myVector<double> dv2 {fill(10)};  // move constructor used
+	myVector<double> dv2 {fill(10)};  // C++14: move constructor used.
+	  // C++17: move constructor NOT used (see slide notes)
 	print(dv2);
 
 	cout << "\nCase b:";
 	myVector<double> dv3{}; 
-	dv3 = fill(5); // Move is selected by compiler 
-		// in return from function. First an unnamed object is constructed by move constructor, and then assigned to dv3 by move assignment
+	dv3 = fill(5); // Move is selected by compiler in return from function.
+		// First an unnamed object is constructed by move constructor (C++14 only), 
+		// and then assigned to dv3 by move assignment
 	print(dv3);
 
 	cout << "\nCase c:\n";
 	myVector<double> dv4{};
-	dv4 = dv3; // copy assignment operator
+	dv4 = dv3; // assignment operator
 	print(dv3);
 	print(dv4);
 
