@@ -11,6 +11,6 @@ using namespace Graph_lib;
 int main() {
 	srand(7); // Set a fixed initial seed, can be any number
 	MyWindow win1{ Point{550, 80}, 300, 400, "MyWindow 1" };
-	MyWindow win2{ Point{1000, 80}, 400, 300, "MyWindow 2" };
+	MyWindow win2{ Point{1000, 80}, 400, 300, "MyWindow 2--" };
 	return gui_main();
 }
