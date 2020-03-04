@@ -38,7 +38,7 @@ public:
 myVector::myVector(initializer_list<double> lst) // initializer-list constructor
 	: sz{ static_cast<int>(lst.size()) }, // static_cast: assume size fits in an int
 	elem{ new double[sz] } {
-	copy(lst.begin(), lst.end(), elem); // copy lst to elem copy from std lib See B.5.2
+	copy(lst.begin(), lst.end(), elem); // copy lst to elem.  copy is from std lib See B.5.2
 }
 
 double & myVector::at(int i) {
