@@ -33,7 +33,6 @@ ostream& operator<<(ostream& ofs, const Student& s) {
 int main() {
 	// Part 1:
 	{
-		int sum = 0;
 		vector<int> v{ 1,1,1,1000 };
 		cout << accumulate(v.begin(), v.end(), 3) << endl;
 
@@ -52,7 +51,7 @@ int main() {
 		vector<double> dv{ 22.22, 11.11, 33.33, 7.7 };
 		sort(dv.begin(), dv.end());
 		for (auto e : dv) cout << e << " ";
-		cout << endl;
+		cout << endl; 
 
 		vector<Student> sv{ {"Kari", 4.5},{"Ola", 4.0}, {"Bjarne", 3.0} };
 		sort(sv.begin(), sv.end());

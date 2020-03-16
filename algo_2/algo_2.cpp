@@ -20,14 +20,15 @@ struct PrintGE {// Greater or Equal
 	//	}
 	//	else return false;
 	//}
-	void operator()(int x) {
+	void operator()(int x) {  // mark-A
 		if (x >= value) {
 			cout << " " << x;
 		}
 	}
 };
 
-// This version was used in the lecture tuesday 26/3 but the return type is not needed here
+// This version was used in an earlier lecture but the return type is not needed 
+//    in the overloading of operator() above (mark-A)
 //bool operator()(int x) {
 //	if (x >= value) {
 //		cout << " " << x;
