@@ -45,7 +45,7 @@ int main() {
 		{ // many of the algorithms, such as unique_copy do also have a return-value
 		  // https://en.cppreference.com/w/cpp/algorithm/unique_copy says the return value is an 
 		  // Output iterator to the element past the last written element 
-		  // This can be used remove those unused vector-elements after removing duplicates 
+		  // This can be used to remove those unused vector-elements after removing adjacent duplicates/ repetitions 
 		  	vector<int> w{ 1, 2, 2, 3, 2, 2, 4, 4, 4, -7, 8};
 			vector<int> w2(v.size()); // Reserve sufficient space in destination
 			vector<int>::iterator it = unique_copy(w.begin(), w.end(), w2.begin());
