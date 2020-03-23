@@ -11,31 +11,12 @@ using namespace std;
 struct PrintGE {// Greater or Equal
 	PrintGE(int v) : value{ v } { }
 	int value;
-	// This version was used in the lecture tuesday 26/3 but the return type is not needed here
-	// since the printout is done in the function
-	//bool operator()(int x) {
-	//	if (x >= value) {
-	//		cout << " " << x;
-	//		return true;
-	//	}
-	//	else return false;
-	//}
-	void operator()(int x) {  // mark-A
+	void operator()(int x) { 
 		if (x >= value) {
 			cout << " " << x;
 		}
 	}
 };
-
-// This version was used in an earlier lecture but the return type is not needed 
-//    in the overloading of operator() above (mark-A)
-//bool operator()(int x) {
-//	if (x >= value) {
-//		cout << " " << x;
-//		return true;
-//	}
-//	else return false;
-//}
 
 void print(const int& n) {
 	cout << " " << n;
@@ -61,6 +42,16 @@ int main() {
 		unique_copy(v.begin(), v.end(), v2.begin());
 		for_each(v2.begin(), v2.end(), print);
 		cout << '\n';
+		{ // many of the algorithms, such as unique_copy do also have a return-value
+		  // https://en.cppreference.com/w/cpp/algorithm/unique_copy says the return value is an 
+		  // Output iterator to the element past the last written element 
+		  // This can be used remove those unused vector-elements after removing duplicates 
+		  	vector<int> w{ 1, 2, 2, 3, 2, 2, 4, 4, 4, -7, 8};
+			vector<int> w2(v.size()); // Reserve sufficient space in destination
+			vector<int>::iterator it = unique_copy(w.begin(), w.end(), w2.begin());
+			w2.resize(distance(w2.begin(), it));
+			for_each(w2.begin(), w2.end(), print);
+		}
 	}
 	cout << endl;
 
