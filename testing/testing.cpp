@@ -9,47 +9,30 @@
 #include <vector>
 using namespace std;
 
-// --- legg inn min egen binSearch --- bruk fra Einar Johan  const iterator ...  /// gå over all kode, forenkle ... 
-
 // Since binary_search() is in the standard library we define our own bin_search() to
 // be able to inject errors for demonstrating the testing. 
+// Thanks to EJAA for contributing to this code (guest lecture 2019)
+bool bin_search(const vector<int>::const_iterator& start, 
+        const vector<int>::const_iterator& end, int value) {
+	if (start != end) { // start == end implies an empty sequence
+		auto mid_point = distance(start, end) / 2; // sets iterator for midpoint, distance returns "number of elements"
+          // See also https://en.cppreference.com/w/cpp/iterator/distance
+		auto mid_value = *(start + mid_point); // reads and stores the value found at the midpoint
 
-bool bin_search(const vector<int>::const_iterator& start, const vector<int>::const_iterator& end, int value) {
-	if (start != end) {
-		auto mid_point = (end - start) / 2;
-		auto mid_value = *(start + mid_point);
-		if (value < mid_value) {
-			return bin_search(start, end - mid_point, value);
-		}
-        else if (value > mid_value) {
+		if (mid_value == value) {
+			return true;  // value found
+		} else if (mid_point == 0) {
+			return false; // value is not found, and there are no more elements to check
+		} else if (value > mid_value) { // search in upper half
 			return bin_search(start + mid_point, end, value);
-		} 
-        else if (mid_value == value) {
-			return true;
+		} else if (value < mid_value) { // search in lower half
+			return bin_search(start, end - mid_point, value); // use "iterator subtraction"
 		}
-        else {
-			return false;
-		} 
+		return true;
 	}
+	return false;
 }
-// EJAA-variant
-// bool bin_search(const vector<int>::const_iterator& start, const vector<int>::const_iterator& end, int value) {
-// 	if (start != end) {
-// 		auto mid_point = (end - start) / 2;
-// 		auto mid_value = *(start + mid_point);
-// 		if (mid_value == value) {
-// 			return true;
-// 		} else if (mid_point == 0) {
-// 			return false;
-// 		} else if (value > mid_value) {
-// 			return bin_search(start + mid_point, end, value);
-// 		} else if (value < mid_value) {
-// 			return bin_search(start, end - mid_point, value);
-// 		}
-// 		return true;
-// 	}
-// 	return false;
-// }
+
 
 
 struct Test {
@@ -119,12 +102,3 @@ try {
     cerr << "Exception caught:" << e.what() << endl;
     return -1;
 }
-
-
-// int main() {
-//     string testFile{"BinarySearchTests.txt"}; 
-//     cout << "Running all tests from " + testFile + "\n";
-//     int errors = test_all(testFile);
-//     cout << "number of errors: " << errors << "\n";
-//     return 0;
-// }
