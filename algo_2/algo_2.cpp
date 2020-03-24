@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iostream>
 #include<string>
+#include<list>
 
 using namespace std;
 
@@ -73,7 +74,9 @@ int main() {
 		cout << endl;
 
 		vector<int> v1{ 1000, 2000, 10000, 20000 };
-		vector<int> v2{ 3, 9, 21, 64 };
+		list<int> v2{ 3, 9, 21, 64 };  // We changed v2 to list<int> here during lecture 24/3-2020
+		// to illustrate that the sequences in transform can be from different kinds of
+		// containers
 		transform(v1.begin(), v1.end(), v2.begin(), v1.begin(), myFunc);
 		for (auto e : v1) cout << e << " ";
 		cout << endl;
