@@ -47,32 +47,24 @@ struct TestSyntaxError {
     }
 };
 
+// The following code has a compact layout to fit on one slide
+// Example input: { SomeLabel 7 { 1 2 3 5 8 13 21} 0 }
 istream& operator>>(istream& is, Test& t) { 
-    // Example input: { SomeLabel 7 { 1 2 3 5 8 13 21} 0 }
     string leftPar1, leftPar2;
     if ((is >> leftPar1 >> t.label >> t.val >> leftPar2) 
-         && (leftPar1 != "{" || leftPar2 != "{")) {  
-        throw TestSyntaxError("before number sequence"); 
-    }
+         && (leftPar1 != "{" || leftPar2 != "{")) 
+         {  throw TestSyntaxError("before number sequence"); }
     t.seq.clear();  // clear erases all elements and sets size of vector to zero
     string s = "";
     bool endOfSequenceFound = false;
     while ((is >> s) && !endOfSequenceFound) {
-        if (s == "}") {
-            endOfSequenceFound = true;
-            break;
-        }
+        if (s == "}") { endOfSequenceFound = true; break; }
         t.seq.push_back(stoi(s));
     }
     string rightPar = "";
-    int res = 0;
-    if ( !(is >> res)) {
-        throw TestSyntaxError("result-value missing");
-    } 
-    else if ((is >> rightPar) && (rightPar != "}")) {
-        throw TestSyntaxError("after number sequence"); 
-    }
-    t.res = res;
+    if ( !(is >> t.res)) { throw TestSyntaxError("result-value missing");} 
+    else if ((is >> rightPar) && 
+        (rightPar != "}")) { throw TestSyntaxError("after number sequence");}
     return is;
 }
 ostream& operator<<(ostream& os, const Test& t) {
@@ -95,7 +87,7 @@ int test_all(string testFileName)  {
         if (result != t.res) { // Report failure
             cout << "failure: test " << t.label
                  << " binary_search: "
-                 << t.seq.size() << " elements, v ==" << t.val
+                 << t.seq.size() << " elements, v == " << t.val
                  << " -> " << t.res << '\n';
             ++error_count;
         }
