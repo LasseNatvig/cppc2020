@@ -40,27 +40,39 @@ struct Test {
     bool res; // expected result
 };
 
+struct TestSyntaxError {
+    string s1 = "ERROR: Invalid test file format ";
+    TestSyntaxError(string msg) { 
+        throw runtime_error(s1 + msg);
+    }
+};
 
 istream& operator>>(istream& is, Test& t) { 
     // Example input: { SomeLabel 7 { 1 2 3 5 8 13 21} 0 }
-    string a, b;
-    if (is >> a >> t.label >> t.val >> b && (a != "{" || b != "{")) {  // *****************TODO simplify and test logic 
-        cerr << "ERROR: Invalid test file format" << endl;
-        return is;
+    string leftPar1, leftPar2;
+    if ((is >> leftPar1 >> t.label >> t.val >> leftPar2) 
+         && (leftPar1 != "{" || leftPar2 != "{")) {  
+        throw TestSyntaxError("before number sequence"); 
     }
-    // cout << a << '|' << t.label << '|'  << b << '|'  << t.val << '|' ;  // debug 
-    t.seq.clear();
-    copy( istream_iterator<int>(is), istream_iterator<int>(), back_inserter(t.seq));
-    is.clear();
-    //std::copy(t.seq.begin(), t.seq.end(), std::ostream_iterator<int>(cout," "));
-    string c, d;
+    t.seq.clear();  // clear erases all elements and sets size of vector to zero
+    string s = "";
+    bool endOfSequenceFound = false;
+    while ((is >> s) && !endOfSequenceFound) {
+        if (s == "}") {
+            endOfSequenceFound = true;
+            break;
+        }
+        t.seq.push_back(stoi(s));
+    }
+    string rightPar = "";
     int res = 0;
-    if (is >> c >> res >> d && (c != "}" || d != "}")) {
-        std::cerr << "ERROR: Invalid test file format" << std::endl;
-        return is;
+    if ( !(is >> res)) {
+        throw TestSyntaxError("result-value missing");
+    } 
+    else if ((is >> rightPar) && (rightPar != "}")) {
+        throw TestSyntaxError("after number sequence"); 
     }
     t.res = res;
-    //cout << c << '|' << t.res << '|' << d << '|' ;
     return is;
 }
 ostream& operator<<(ostream& os, const Test& t) {
@@ -78,7 +90,7 @@ int test_all(string testFileName)  {
     int error_count = 0;
     Test t;
     while (tests >> t) {
-        cout << t << endl; // to show progress during testing
+        cout << t <<  " --- done " << endl; // to show progress during testing
         bool result = bin_search( t.seq.begin(), t.seq.end(), t.val);
         if (result != t.res) { // Report failure
             cout << "failure: test " << t.label
@@ -94,11 +106,11 @@ int test_all(string testFileName)  {
 int main()
 try {
     string testFile{"BinarySearchTests.txt"}; 
-    cout << "Running all tests from " + testFile + "\n";
+    cout << "Running all tests from " + testFile + "\n\n";
     int errors = test_all(testFile);
     cout << "number of errors: " << errors << "\n";
     return 0;
 } catch (exception e) {
-    cerr << "Exception caught:" << e.what() << endl;
+    cerr << "Exception caught: " << e.what() << endl;
     return -1;
 }
