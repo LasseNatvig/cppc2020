@@ -21,12 +21,13 @@ bool bin_search(const vector<int>::const_iterator& start,
 
 		if (mid_value == value) {
 			return true;  // value found
-		} else if (mid_point == 0) {
+		} 
+        else if (mid_point == 0) {
 			return false; // value is not found, and there are no more elements to check
 		} else if (value > mid_value) { // search in upper half
-			return bin_search(start + mid_point, end, value);
+			return bin_search(start + mid_point, end, value); // Try with "end - 1", testcase 1.4 will find the bug
 		} else if (value < mid_value) { // search in lower half
-			return bin_search(start, end - mid_point, value); // use "iterator subtraction"
+			return bin_search(start, end - mid_point, value); // Uses "iterator subtraction". Try with "start + 1", testcase 1.1 will find the bug
 		}
 		return true;
 	}
@@ -60,10 +61,11 @@ istream& operator>>(istream& is, Test& t) {
         if (s == "}") { endOfSequenceFound = true; break; }
         t.seq.push_back(stoi(s));
     }
+    is.clear();
     string rightPar = "";
     if ( !(is >> t.res)) { throw TestSyntaxError("result-value missing");} 
     else if ((is >> rightPar) && 
-        (rightPar != "}")) { throw TestSyntaxError("after number sequence");}
+        (rightPar != "}")) { throw TestSyntaxError("after number sequence");}  
     return is;
 }
 
@@ -81,7 +83,7 @@ int test_all(string testFileName)  {
     };
     int error_count = 0;
     Test t;
-    while (tests >> t) {
+    while (!tests.eof() && tests >> t) {
         cout << t <<  " --- done " << endl; // to show progress during testing
         bool result = bin_search( t.seq.begin(), t.seq.end(), t.val);
         if (result != t.res) { // Report failure
