@@ -55,8 +55,7 @@ istream& operator>>(istream& is, Test& t) {
          && (leftPar1 != "{" || leftPar2 != "{")) 
          {  throw TestSyntaxError("before number sequence"); }
     t.seq.clear();  // clear erases all elements and sets size of vector to zero
-    string s = "";
-    bool endOfSequenceFound = false;
+    string s = ""; bool endOfSequenceFound = false;
     while ((is >> s) && !endOfSequenceFound) {
         if (s == "}") { endOfSequenceFound = true; break; }
         t.seq.push_back(stoi(s));
@@ -67,6 +66,7 @@ istream& operator>>(istream& is, Test& t) {
         (rightPar != "}")) { throw TestSyntaxError("after number sequence");}
     return is;
 }
+
 ostream& operator<<(ostream& os, const Test& t) {
     os << "{ " << t.label << ' ' << t.val << " { ";
     copy(t.seq.begin(), t.seq.end(), ostream_iterator<int>(os," "));
