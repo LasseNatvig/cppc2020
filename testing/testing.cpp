@@ -1,4 +1,4 @@
-
+// testing.cpp
 // This is based on example code from Chapter 26.3.2.2 "A simple test harness" of
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 #include <algorithm>
@@ -33,16 +33,16 @@ bool bin_search(const vector<int>::const_iterator& start,
 	return false;
 }
 
-
-
-struct Test {
-    string label;
-    int val;
-    vector<int> seq;
-    bool res; 
+struct Test {  
+    string label;  // label (name)
+    int val; // value to search after
+    vector<int> seq; // sequence to search in
+    bool res; // expected result
 };
-istream& operator>>(istream& is, Test& t) { // use the described format 
-    // Example input: { 2-7 7 { 1 2 3 5 8 13 21} 0 }
+
+
+istream& operator>>(istream& is, Test& t) { 
+    // Example input: { SomeLabel 7 { 1 2 3 5 8 13 21} 0 }
     string a, b;
     if (is >> a >> t.label >> t.val >> b && (a != "{" || b != "{")) {  // *****************TODO simplify and test logic 
         cerr << "ERROR: Invalid test file format" << endl;
@@ -65,25 +65,25 @@ istream& operator>>(istream& is, Test& t) { // use the described format
 }
 ostream& operator<<(ostream& os, const Test& t) {
     os << "{ " << t.label << ' ' << t.val << " { ";
-    std::copy(t.seq.begin(), t.seq.end(), std::ostream_iterator<int>(os," "));
+    copy(t.seq.begin(), t.seq.end(), ostream_iterator<int>(os," "));
     return os << "} " << t.res << " }";
 }
 
 int test_all(string testFileName)  {
     ifstream tests{testFileName};
-    if (!tests) {
+    if (!tests) { // check file is OK
         cerr << "Could not open test-file: " << testFileName << " will exit!" << endl;
         exit(-1);
     };
     int error_count = 0;
     Test t;
-    while (tests>>t) {
-        cout << t << endl;
-        bool r = bin_search( t.seq.begin(), t.seq.end(), t.val);
-        if (r !=t.res) {
+    while (tests >> t) {
+        cout << t << endl; // to show progress during testing
+        bool result = bin_search( t.seq.begin(), t.seq.end(), t.val);
+        if (result != t.res) { // Report failure
             cout << "failure: test " << t.label
                  << " binary_search: "
-                 << t.seq.size() << " elements, v==" << t.val
+                 << t.seq.size() << " elements, v ==" << t.val
                  << " -> " << t.res << '\n';
             ++error_count;
         }
