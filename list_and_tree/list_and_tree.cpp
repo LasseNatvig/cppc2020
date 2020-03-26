@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include<vector>
+#include <cassert>
+
 using namespace std;
 
 struct ListNode {
@@ -50,6 +52,7 @@ void printList(ListNode* l) {
 // You should free up memory in all nodes allocated in a list. Not
 // implemented here for brewity. Loop through the list and delete nodes on the way.
 // You need a pointer to previous node, see LinkedList.cpp
+
 // Using recursion to reverse list
 void printReverseList(ListNode* l) {
 	if (l == nullptr) {
@@ -80,6 +83,7 @@ void insertNode(int i, TreeNode* root) {
 
 TreeNode* buildTree(vector<int>& v) { 
 	// assumes at least one element
+	assert(v.size() > 0);
 	TreeNode* root = new TreeNode(v[0]);
 	for (unsigned int i = 1; i < v.size(); i++) { 
 		// for all elements in vector 
@@ -96,7 +100,6 @@ void printTree(TreeNode* root) {
 	}
 }
 
-
 int main() {
 	vector<int> v{ 40, 20, 50, 10, 60, 30 };
 	ListNode* list = buildList(v);
@@ -106,5 +109,10 @@ int main() {
 	TreeNode* root = buildTree(v);
 	cout << endl << endl << "Binary tree: ";
 	printTree(root);
+
+	// // uncomment this to see the effect of assert
+	// vector<int> v2{};
+	// root = buildTree(v2);
+
 	return 0;
 }
