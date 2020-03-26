@@ -12,7 +12,7 @@ int main() {
 	// a = b;  // error, not allowed by compiler
 
 	cout << "\n*** C-string copy\n";
-	// strcpy(a, b);  // Not allowed in standard MS-VS, since it is unsafe
+	strcpy(a, b);  // VS Code gives warning and suggests strcpy_s 
 #ifdef MS_VS
 	strcpy_s(a, b);
 	//strcpy_s(a2, b); // Gives runtime error: "L buffer is too small..."
