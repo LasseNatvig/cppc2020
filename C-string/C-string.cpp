@@ -3,7 +3,7 @@
 #include <cstring>
 using namespace std;
 // comment the next line when compiling for MAC or Unix
-#define WINDOWS 
+ 
 
 int main() {
 	char a[10] = "ole";  // with extra unused space
@@ -16,7 +16,7 @@ int main() {
 
 // In general, the availability of these functions differ between operating systems and libraries.
 // More info is here: https://en.cppreference.com/w/c/string/byte/strcpy	
-#ifdef WINDOWS
+#ifdef _MSC_VER
 	strcpy_s(a, b);  // is part of C11, only available under windows
 	// strcpy_s(a2, b); // Gives runtime error: "L buffer is too small..."
 #else
@@ -33,7 +33,7 @@ int main() {
 
 	// strncpy(a,b,n); copies n chars from the start of b to a (from the start of a), gives warning under windows
 	// More info: https://en.cppreference.com/w/c/string/byte/strncpy
-#ifdef WINDOWS
+#ifdef _MSC_VER
 	strncpy_s(d, c, 4);
 #else
 	strncpy(d, c, 4);
@@ -48,7 +48,7 @@ int main() {
 
 // More info: https://en.cppreference.com/w/c/string/byte/strcat
 // More info: https://en.cppreference.com/w/c/string/byte/strncat
-#ifdef WINDOWS
+#ifdef _MSC_VER
 	strcat_s(s3, " ");  // appends a blank to s3
 	strcat_s(s3, s2); // appends s2 to s3
 	cout << "s3 = " << s3 << endl;
