@@ -1,0 +1,79 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "windows": {
+        "command": "nmake",
+        "options": {
+            "env": {
+                "Path": "${env:Path};${env:VCINSTALLDIR}Tools/Llvm/bin"
+            }
+        }
+    },
+    "tasks": [
+        // For incremental builds, disabled to avoid confusion
+        // when updating e.g. only header files.
+        // {
+        //     "type": "shell",
+        //     "label": "Build Debug Executable",
+        //     "windows": {
+        //         "args": [
+        //             "\"DEBUG_BUILD=true\"",
+        //             "debug.exe"
+        //         ]
+        //     },
+        //     "problemMatcher": "$msCompile",
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": true
+        //     }
+        // },
+        // {
+        //     "type": "shell",
+        //     "label": "Build Release Executable",
+        //     "windows": {
+        //         "args": [
+        //             "release.exe"
+        //         ]
+        //     },
+        //     "problemMatcher": "$msCompile",
+        //     "group": {
+        //         "kind": "build",
+        //         "isDefault": true
+        //     }
+        // },
+        {
+            "type": "shell",
+            "label": "Build Debug Executable",
+            "windows": {
+                "args": [
+                    "\"DEBUG_BUILD=true\"",
+                    "clearscreen",
+                    "clean",
+                    "debug.exe"
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Build Release Executable",
+            "windows": {
+                "args": [
+                    "clearscreen",
+                    "clean",
+                    "release.exe"
+                ]
+            },
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

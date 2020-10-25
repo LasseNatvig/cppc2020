@@ -1,0 +1,35 @@
+{
+    "env": {
+        "tdt4102Path": "${AppData}/tdt4102/tdt4102",
+        "tdt4102IncludePath": [
+            "${tdt4102Path}/Graph_lib/include/*",
+            "${tdt4102Path}/FLTK-1.4/*"
+        ]
+    },
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${tdt4102IncludePath}"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "NOGDI",
+                "_WINDOWS",
+                "WIN32",
+                "_CRT_SECURE_NO_WARNINGS"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64",
+            "compilerArgs": [
+                "-m64"
+            ],
+            "windowsSdkVersion": "10.0.18362.0"
+        }
+    ],
+    "version": 4
+}
