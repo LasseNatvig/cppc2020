@@ -50,7 +50,7 @@ int main() {
 	int ySpan = totalMax - totalMin; // no of degrees to span all of y-axis
 
 	Open_polyline oplMax;
-	for (int i = 0; i < maxTemp.size(); i++) {
+	for (unsigned int i = 0; i < maxTemp.size(); i++) {
 		oplMax.add(Point{ xCoord(origo,i), yCoord(origo, maxTemp[i], totalMin, ySpan) });
 	}
 	oplMax.set_color(Color::red);
