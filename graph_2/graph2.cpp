@@ -1,4 +1,4 @@
-  // graph_2.cpp (code will be improved!)
+  // graph_2.cpp (code will be improved!  )
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
