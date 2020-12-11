@@ -1,6 +1,0 @@
-.gitignore
-.vscode
-debug
-release
-Makefile
-olsen-test
