@@ -7,7 +7,9 @@ int max(vector<int> v) {
 	// assumes at least 1 element in v
 	int max = v[0];
 	for (unsigned int i = 1; i < v.size(); i++) {
-		if (v[i] > max) max = v[i];
+		if (v[i] > max) {
+			max = v[i];
+		}
 	}
 	return max;
 }
@@ -15,7 +17,9 @@ int min(vector<int> v) {
 	// assumes at least 1 element in v
 	int min = v[0];
 	for (unsigned int i = 1; i < v.size(); i++) {
-		if (v[i] < min) min = v[i];
+		if (v[i] < min) {
+			min = v[i];
+		}
 	}
 	return min;
 }
@@ -23,11 +27,11 @@ int min(vector<int> v) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 2 Example graph_2");
-	Axis xa(Axis::x, origo, 330, 11, "Month");
+	Simple_window win{tl, 400, 300, "Lecture 2 Example graph_2"};
+	Axis xa{Axis::x, origo, 330, 11, "Month"};
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
-	Axis ya(Axis::y, origo, 210, 7, "Celsius");
+	Axis ya{Axis::y, origo, 210, 7, "Celsius"};
 	win.attach(ya); // attach ya
 	ya.set_color(Color::black);
 
@@ -51,7 +55,7 @@ int main() {
 	Open_polyline oplMin;
 	for (unsigned int i = 0; i < minTemp.size(); i++) {
 		int temp = minTemp[i];
-		int xCoord = origo.x + ((i * 330) / 11);                      // Two lines equal to those for oplMax 
+		int xCoord = origo.x + ((i * 330) / 11); // Two lines equal to those for oplMax 
 		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
 		oplMin.add(Point{ xCoord, yCoord });
 	}
@@ -59,6 +63,4 @@ int main() {
 	win.attach(oplMin);
 
 	win.wait_for_button();
-
-	
 };

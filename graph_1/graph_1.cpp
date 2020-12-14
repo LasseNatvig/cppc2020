@@ -5,11 +5,11 @@ using namespace Graph_lib;
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 2 Example graph_1");
-	Axis xa(Axis::x, origo, 330, 11, "Month");
+	Simple_window win{tl, 400, 300, "Lecture 2 Example graph_1"};
+	Axis xa{Axis::x, origo, 330, 11, "Month"};
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
-	Axis ya(Axis::y, origo, 210, 7, "Celsius");
+	Axis ya{Axis::y, origo, 210, 7, "Celsius"};
 	win.attach(ya); // attach ya
 	ya.set_color(Color::black);
 
