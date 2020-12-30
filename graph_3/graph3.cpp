@@ -38,7 +38,7 @@ int main() {
 	Axis xa{Axis::x, origo, xAxisSize, maxMonthNo, "Month (August 2017 .. July 2018)"};
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
-	Axis ya{Axis::y, origo, yAxisSize, 7, "Celsius (-5 .. +25)"};
+	Axis ya{Axis::y, origo, yAxisSize,  7, "Celsius (-5 .. +25)"};
 	win.attach(ya); // attach ya
 	ya.set_color(Color::black);
 
