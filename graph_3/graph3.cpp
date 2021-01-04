@@ -1,4 +1,4 @@
-  // graph_3.cpp, an improvement of graph_2.cpp  
+  // graph3.cpp, an improvement of graph2.cpp  
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
@@ -67,10 +67,12 @@ int main() {
 	constexpr int backY = 50;
 	constexpr int back_width = 150; 
 	constexpr int back_height = 45;
+	constexpr int textX = 110;  
+	constexpr int textY = 75;
 	Rectangle background{ Point{backX, backY}, back_width, back_height }; // PPP 12.7.6
 	background.set_fill_color(Color::yellow);
 	win.attach(background);
-	Text trd{ Point{110, 75}, "Trondheim *** Norway" }; // hmmm, magic numbers ?
+	Text trd{ Point{textX, textY}, "Trondheim - Norway" };
 	trd.set_color(Color::dark_red);
 	win.attach(trd);
 
