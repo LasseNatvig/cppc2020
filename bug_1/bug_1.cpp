@@ -17,7 +17,7 @@ int main() {
 try {
 	cout << maxOfTwo(2.0, 1.99999999) << endl;                 
 	cout << maxOfTwo(2.0, 3.0) <<  endl;              
-	cout << maxOfTwo(2.0, 2.0) << endl;      
+	// cout << maxOfTwo(2.0, 2.0) << endl;      
 	cout << maxOfTwo(2.0, 1.9999999999999999) << endl;
      
 	cout << maxOfTwo(4, 5) << endl;     

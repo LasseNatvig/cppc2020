@@ -1,10 +1,10 @@
-  // param_passing.cpp      Demonstrates different methods of parameter passing and performance
+// param_passing.cpp      Demonstrates different methods of parameter passing and performance
 #include "std_lib_facilities.h"
 
-clock_t readTime() { return clock(); }
+// See http://www.cplusplus.com/reference/ctime/clock/
 void reportTime(clock_t before, string str) {
-	cout << str << " " << "clock_ticks used: " <<
-		readTime() - before << endl;
+	cout << str << ": " <<
+		static_cast<double>(clock() - before)/CLOCKS_PER_SEC << " seconds" <<endl;
 }
 vector<int> generateVector(unsigned int n) {
 	vector<int> temp;
@@ -43,22 +43,22 @@ void searchVectorConstRef(const vector<int>& v_cr, int num) { // call by const r
 }
  
 int main() {
-	clock_t before = readTime();
+	clock_t before = clock();
 	vector<int> V = generateVector(40000000); 
 	reportTime(before, "generate");
 
 	cout << endl;
-	before = readTime();
+	before = clock();
 	searchVectorCopy(V, 9999);
 	reportTime(before, "copy");
 
 	cout << endl;
-	before = readTime();
+	before = clock();
 	searchVectorRef(V, 9999);
 	reportTime(before, "reference");
 
 	cout << endl;
-	before = readTime();
+	before = clock();
 	searchVectorConstRef(V, 9999);
 	reportTime(before, "const reference");
 
