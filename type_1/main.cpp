@@ -1,9 +1,9 @@
-  // type_1.cpp      Demonstrates simple use of string, and more
+// type_1.cpp      Demonstrates simple use of string, and more
 #include "std_lib_facilities.h"
 int main() {
 	//**************************************************
 	// part a) Uninitialized variables, MS-Visual Studio (used in 2019) gives error message for these
-	// MS-VS Code, used in the 2020 course allows these, but gives good warnings and advice for improving the code
+	// MS-VS Code, used in the 2021 course allows these, but gives good warnings and advice for improving the code
 	
 	int x;		// could get a “random” initial value on some compilers, is set to 0 by VS code
 	char c; 	// could get a “random” initial value on some compilers, is set to ' ' by VS code
