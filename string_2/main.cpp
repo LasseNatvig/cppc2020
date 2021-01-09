@@ -3,7 +3,7 @@
 int main() {
 	//*****************************************************
 	// A) Correct use of string
-	string str1{"ABCDEF"};  //
+	string str1{"ABCDEF"};  
 	for (unsigned int i = 3; i < str1.size(); ++i) {
 		str1[i] = '*';
 	}
@@ -25,7 +25,7 @@ int main() {
 	// C) when accessing chars in a string we can use member function at() instead of [], and we see
 	// that at() is range checked. Code below does exactly the same as case B) above, and has the same erroneous <= in condition 
 	// and it will throw an exception. So it is SAFE
-	string str3 = "ABCDEF"; // 
+	string str3 = "ABCDEF"; 
 	for (unsigned int i = 3; i < str3.size(); ++i) { // this line needed to be able to proceed to case D)
     // for (unsigned int i = 3; i <= str3.size(); ++i) {
 		str3.at(i) = '*';
@@ -44,7 +44,7 @@ int main() {
 	//*****************************************************
 	// E) Just as case B above but with C-string 
 	char str5[] = "ABCDEF"; 
-	for (unsigned int i = 3; i <= strlen(str5); ++i) {
+	for ( unsigned int i = 3; i <= strlen(str5); ++i) {
 		str5[i] = '*';
 	}
 	cout << "str5: " << str5 << endl;

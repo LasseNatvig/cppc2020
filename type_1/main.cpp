@@ -38,11 +38,11 @@ int main() {
 	}
 	{
 		double x{ 2.7 }; // OK
-		// int y{ x }; // VS code: error: type 'double' cannot be narrowed to 'int' in initializer list
+		//int y{ x }; // VS code: error: type 'double' cannot be narrowed to 'int' in initializer list
 		int a{ 40 }; // OK
 		//char b{ a }; // VS code: error: non-constant-expression cannot be narrowed from type 'int' to 'char' in initializer list
 		char bb1 = 1000; // not good, allowed, but gives warning
-		char b1{ 1000 }; // VS code:  error: constant expression evaluates to 1000 which cannot be narrowed to type 'char' 
+		// char b1{ 1000 }; // VS code:  error: constant expression evaluates to 1000 which cannot be narrowed to type 'char' 
 		char b2{ 48 }; // OK
 		cout << endl;
 	}
