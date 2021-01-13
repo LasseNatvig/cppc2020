@@ -1,8 +1,8 @@
 /* type_1.cpp      Demonstrates: 
 - uninitialized variables
-- unsafe conevsrion, narrowing conversion
-- simple use of string, and more
-- 
+- unsafe conversion, narrowing conversion
+- reading a double
+- cout with comments spanning several lines
 */
 #include "std_lib_facilities.h"
 int main() {
@@ -44,9 +44,9 @@ int main() {
 	}
 	{
 		double x{ 2.7 }; // OK
-		//int y{ x }; // VS code: error: type 'double' cannot be narrowed to 'int' in initializer list
+		// int y{ x }; // VS code: error: type 'double' cannot be narrowed to 'int' in initializer list
 		int a{ 40 }; // OK
-		//char b{ a }; // VS code: error: non-constant-expression cannot be narrowed from type 'int' to 'char' in initializer list
+		// char b{ a }; // VS code: error: non-constant-expression cannot be narrowed from type 'int' to 'char' in initializer list
 		char bb1 = 1000; // not good, allowed, but gives warning
 		// char b1{ 1000 }; // VS code:  error: constant expression evaluates to 1000 which cannot be narrowed to type 'char' 
 		char b2{ 48 }; // OK
@@ -67,6 +67,5 @@ int main() {
 				<< " char(" << c << ")\n"; // the char
 		}
 	}
-
 	keep_window_open();
 }
