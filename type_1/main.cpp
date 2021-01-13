@@ -1,4 +1,9 @@
-// type_1.cpp      Demonstrates simple use of string, and more
+/* type_1.cpp      Demonstrates: 
+- uninitialized variables
+- unsafe conevsrion, narrowing conversion
+- simple use of string, and more
+- 
+*/
 #include "std_lib_facilities.h"
 int main() {
 	//**************************************************
@@ -6,17 +11,18 @@ int main() {
 	// MS-VS Code, used in the 2021 course allows these, but gives good warnings and advice for improving the code
 	
 	int x;		// could get a “random” initial value on some compilers, is set to 0 by VS code
-	char c; 	// could get a “random” initial value on some compilers, is set to ' ' by VS code
+	char c; 	// could get a “random” initial value on some compilers, is set to '\0' == 0  by VS code
+	double d1 = 0.0; // correct initializing of double
 	double d; 	// could get a “random” initial value on some compilers, is set to zero or almost zero by VS code
-				//     – not every bit pattern is a valid floating-point value
-	double dd = d;	// potential error: some implementations, can’t copy invalid floating-point values
-	cout << " x: " << x << " c: " << c << " d: " << d << " dd: " << dd << '\n';
+		//     – not every bit pattern is a valid floating-point value
+	double dd = d;	// "works" in VS code, but potential error: some implementations, can’t copy invalid floating-point values
+	cout << " x: " << x << " c: " << c << " d1 " << d1 <<  " d: " << d << " dd: " << dd << '\n';
 
 	//**************************************************
-	// Part b) Implicit narrowing, from PPP 3.9.2
+	// Part b) Unsafe conversion, implicit narrowing, from PPP 3.9.2
 	{
-		int a = 20000;
-		char c = a;  // narrowing conversion, not good
+		int a = 20011;
+		char c = a;  // narrowing conversion, not good, c becomes '+' 
 		int b = c;
 		if (a != b)	{    	//  != means “not equal”
 			cout << "Oops: " << a << " != " << b << '\n';

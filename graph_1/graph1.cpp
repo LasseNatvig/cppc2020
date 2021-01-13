@@ -20,6 +20,7 @@ int main() {
 	Open_polyline oplMax;
 	for (unsigned int i = 0; i < maxTemp.size(); i++) {
 		oplMax.add(Point{ origo.x + static_cast<int>(i), origo.y - maxTemp[i] });
+		// oplMax.add(Point{ origo.x + i, origo.y - maxTemp[i] }); // try this, look in terminal tab after compilation
 	}
 	oplMax.set_color(Color::red);  
 	win.attach(oplMax);
