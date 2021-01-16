@@ -13,13 +13,15 @@ int main() {
 	// B) The same code, but condition is <= size() and not < size()
 	// This will go 1 position beyond end of string, it is allowed!
 	// https://en.cppreference.com/w/cpp/string/basic_string/operator_at 
-	// States that if index in [index] is greater or equal to size() the result is undefined
+	// States that if index in [index] is greater than size() the result is undefined
+	// if index == size() the null character is returned
 	// This is UNSAFE CODE
 	string str2{"ABCDEF"}; // 
 	for (unsigned int i = 3; i <= str2.size(); ++i) {
 		str2[i] = '*';
 	}
-	cout << "str2: " << str2 << endl;  
+	cout << "str2: " << str2 << endl;  // VScode debugger shows str2 == "ABC****" (7 chars) but reports size as 6!
+		// This shows that the unsafe code "confuses" the debugger. Don't do this!
 
 	//*****************************************************
 	// C) when accessing chars in a string we can use member function at() instead of [], and we see
@@ -27,7 +29,7 @@ int main() {
 	// and it will throw an exception. So it is SAFE
 	string str3 = "ABCDEF"; 
 	for (unsigned int i = 3; i < str3.size(); ++i) { // this line needed to be able to proceed to case D)
-    // for (unsigned int i = 3; i <= str3.size(); ++i) {
+    //for (unsigned int i = 3; i <= str3.size(); ++i) {
 		str3.at(i) = '*';
 	}
 	cout << "str3: " << str3 << endl;
