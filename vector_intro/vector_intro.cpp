@@ -22,7 +22,9 @@ int main() {
 	// a)
 	cout << "The numbers are:\n";
 	for (unsigned int i = 0; i < numbers.size(); i++) { 
-		cout << numbers[i] << " ";  
+		cout << numbers[i] << " "  << flush;  
+		// flush is used to force emptying of output buffer (on Mac)
+		// it is needed to be able to show the output result of every iteration
 	}
 
 	// b)
