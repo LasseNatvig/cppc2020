@@ -50,17 +50,18 @@ int main() {
 	// or the last index in the vector (false). We try the last option:
 
 	// // 4) Traditional for loop with range error
-	// for (unsigned int i = 0; i <= N; i++) {
-	// 	cout << nums[i] << " ";
-	// }
-	// cout << " case 4) finished" << endl;
+	// // It will be stopped in VS code debug mode, but will execute in release mode
+	for (unsigned int i = 0; i <= N; i++) {
+		cout << nums[i] << " ";
+	}
+	cout << " case 4) finished" << endl;
 
-	// // 4-safe) Traditional for loop with range error
+	// //4-safe) Traditional for loop with range error
 	// for (unsigned int i = 0; i <= N; i++) {
 	// 	cout << nums.at(i) << " ";
 	// }
 	// cout << " case 4-safe) finished" << endl;
-	// keep_window_open();
+
 
 	// // 5) Traditional for loop with range error, try - catch demo
 	// try {
@@ -81,22 +82,22 @@ int main() {
 	// }
 	// cout << endl;
 
-	// 6) Traditional for loop with range error, try - catch demo
-	try {
-		for (unsigned int i = 0; i <= N; i++) {
-			cout << nums.at(i) << " ";
-		}
-		cout << endl;
-	}
-	catch (exception& e) {
-		cerr << "Exception: " << e.what() << "\n";
-		keep_window_open();
-		return 1;
-	}
-	catch (...) {
-		cerr << "Unknown exception\n";
-		keep_window_open();
-		return 2;
-	}
+	// // 6) Traditional for loop with range error, try - catch demo
+	// try {
+	// 	for (unsigned int i = 0; i <= N; i++) {
+	// 		cout << nums.at(i) << " ";
+	// 	}
+	// 	cout << endl;
+	// }
+	// catch (exception& e) {
+	// 	cerr << "Exception: " << e.what() << "\n";
+	// 	keep_window_open();
+	// 	return 1;
+	// }
+	// catch (...) {
+	// 	cerr << "Unknown exception\n";
+	// 	keep_window_open();
+	// 	return 2;
+	// }
 	keep_window_open();
 }
