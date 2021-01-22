@@ -23,7 +23,6 @@
 
 // These include files are needed for a plain PPP text project
 
-
 // Only include Windows.h for Windows builds
 #ifdef _WIN32
 #include <Windows.h>

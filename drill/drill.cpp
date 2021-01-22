@@ -3,11 +3,11 @@
 
 int main()
 try {
-	cout << "Success!\n"; // This one is correct
+	// cout << "Success!\n"; // This one is correct
 	//Cout << "Success!\n";
-	cout << "Success!\n;
+	//cout << "Success!\n;
 	//cout << "Success" << !\n"
-	//cout << success << '\n';
+	// cout << success << '\n';
 	// string res = 7; vector<int> v(10); v[5] = res; cout << "Success!\n";
 	//vector<int> v(10); v(5) = 7; if (v(5) != 7) cout << "Success!\n";
 	//if (cond) cout << "Success!\n"; else cout << "Fail!\n";
