@@ -1,5 +1,5 @@
 Denne teksten kommer direkte fra kildekode til fil: 'æøåÆØÅ'
 
 Nå kommer teksten du selv skrev inn i konsollen: 
-æøå
+æøåaäïjÅÅ
 Det ser ut som at dette fungerte som ønsket 

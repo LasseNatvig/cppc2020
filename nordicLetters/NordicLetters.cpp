@@ -2,8 +2,8 @@
 // Thanks to NTNU student Erling Syversveen Lie for contributing with this code,
 // it has been slighty modified by Lasse Natvig 
 
-// *** Note!   This is so far only THE WINDOWS VERSION --- 
-//  - we will provide code for macOS and linux at a later stage
+// *** Note!   This is THE WINDOWS VERSION --- 
+//  - see https://github.com/LasseNatvig/cppc2020/tree/master/nordicLetters for mac and Linux 
 
 // //*** These include files and using directive are needed if you are not using includefiles from the PPP-text book
 // #include <iostream>
@@ -38,12 +38,12 @@ int main(){
 	#endif
 
     string fileString{""};
-    cout << "Hva vil du skrive til filen?\nPrøv gjerne også Nordiske bokstaver som"
-    << "f.eks 'ö', 'ï' og selvfølgelig 'æøå': ";
+    cout << "Hva vil du skrive til filen?\nPrøv gjerne også Nordiske bokstaver som "
+    << "f.eks 'ö', 'ï' og selvfølgelig 'æøå' (men som en streng uten hvitespace): ";
     cin >> fileString;
     ofstream ofs{"MyFile.txt"};
     ofs << "Denne teksten kommer direkte fra kildekode til fil: 'æøåÆØÅ'\n\n";
-    ofs << "Nå kommer teksten du selv skrev inn i konsollen: \n" << fileString << "\n";
+    ofs << "Nå kommer teksten du selv skrev inn i konsollet: \n" << fileString << "\n";
     ofs << "Det ser ut som at dette fungerte som ønsket ";
     ofs.close();
     cout << "\n__________________________________________________________________________\n";
