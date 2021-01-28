@@ -9,7 +9,6 @@ struct Date {
 	void add_day(int n);
 };
 Date::Date(int y, int m, int d) { // check for valid date and initialize
-	// check that (y, m, d) is a valid date
 	cout << "checking valid date NOT completely implemented\n";
 	// But see exam May 2018 problem 2a..2e 
 	if (d > 31) {
