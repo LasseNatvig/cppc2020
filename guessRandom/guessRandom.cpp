@@ -1,7 +1,6 @@
  // guessRandom.cpp
 #include "Windows.h" // Needed for Norwegian letters, see start of main()-function
 #include "std_lib_facilities.h"
-
 #define NDEBUG
 #include<cassert>
 using namespace std;
@@ -11,11 +10,11 @@ int getGuess(int min, int max); // Ask the user for a number between min and max
 void printGuess(int guess, int secret, int count); // Gives feedback 
 
 int main() {
-	SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows)
+	SetConsoleOutputCP(1252); // Needed for Norwegian letters (Windows) --- see example nordicLetters.cpp on same github-account
     SetConsoleCP(1252); // Makes printing æ, ø, å, Æ, Ø and Å possible. Remember to set file encoding to ISO 8859-10
 		// note modified line 30 and new line 31 in Makefile to avoid encoding-warnings
-	srand(static_cast<int>(time(nullptr))); // Sets a seed for random number generator given by current time. Comment out 
-											// this statement if you want deterministic behaviour
+	// srand(static_cast<int>(time(nullptr))); // Sets a seed for random number generator given by current time. Comment out 
+	srand(7);										// this statement if you want deterministic behaviour
 	int secret = (rand() % 10) + 1; // sets secret number using rand()
 	int guess = 0;   
 	int count = 0;

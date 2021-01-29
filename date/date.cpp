@@ -58,29 +58,29 @@ void Date_s::add_day(int n) {	// increase the Date by n days
 
 int main() try {
 	// (1)
-	//Date my_birthday; // error: no default contructor
-	//Date today{ 12, 24, 2007 };  // gives run time error (exception)
+	// Date my_birthday; // error: no default contructor
+	// Date today{ 12, 24, 2007 };  // gives run time error (exception)
 	Date last{ 2000, 12, 31 }; // OK, recommended style
 	Date next = { 2014, 2, 14 }; // slightly verbose, acceptable but not so good
 	Date christmas = Date{ 1976, 12, 24 }; // verbose, acceptable but not so good
 
-	Date whatAday(1958, 5, 20); // OK, but now a rather OLD style (C++98) (PPP p. 312)
+	Date anotherDay(1958, 5, 20); // OK, but now a rather OLD style (C++98) (PPP p. 312)
 
 	// add_day(1); // error, add_day undefined, (what date?)
-	last.add_day(2);  //
+	last.add_day(2);  // not implemented, no effect
 
 	//************************
 	// (2)
 	print_day(christmas);
 	christmas.month = 14; // Free access to member variable in struct date makes it easy to produce an illegal date.
 	// Imagine much later, in another part of a huge program, after hours of execution you will print it ... ("Time bomb")
-	print_day(christmas);  // run-time error
+	// print_day(christmas);  // run-time error
 
 	//************************
 	// (3)
 	Date_s fineDay{ 2019, 1, 29 };
 	// cout << "fineDay.month = " << fineDay.month << endl;  // error, cannot acces private member
-	cout << "fineDay.month = " << fineDay.get_month() << endl;
+	cout << "fineDay.month == " << fineDay.get_month() << endl;
 	Date_s someDay{ 2019, 1, 299 };  // demonstrates exception thrown by Date_s constructor
 
 	return 0;
