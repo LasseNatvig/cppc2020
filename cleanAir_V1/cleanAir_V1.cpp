@@ -32,7 +32,6 @@ int main() try {
 	for (int i = 0; i < allSensors.size(); i++) {
 		allSensors[i].attach(win);
 	}
-
 	// for (auto sens: allSensors) sens->attach(win); 
 	// exactly the same loop as above, as a one-liner. Using auto, more compact. The -> operator is lectured later
 
@@ -47,7 +46,7 @@ int main() try {
 		win.attach(time);
 		updateSensors(allSensors);
 		win.wait_for_button(); // Since all the sensors were attached to the window every update will be displayed here 
-		cout << "... Luftforurensingsstatus klokken " + to_string(hour) + " er vist (IKKE implementert enda)\n";
+		cout << "... Luftforurensingsstatus klokken " + to_string(hour) + " er vist\n";
 	}
 }
 
