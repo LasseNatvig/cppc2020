@@ -1,5 +1,5 @@
 //  int_input.cpp   
-// Much inspired from PPP 10.7
+// Much inspired from PPP 10.7.
 
 #include "std_lib_facilities.h"
 int main() {
