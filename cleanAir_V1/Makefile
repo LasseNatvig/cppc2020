@@ -9,7 +9,7 @@ EXECUTABLE = release
 BUILDDIR = release
 !endif
 
-TDT4102_DIR = "C:/Program Files/tdt4102"
+TDT4102_DIR = "%AppData%/tdt4102/tdt4102"
 GRAPH_LIB_DIR = $(TDT4102_DIR)/Graph_lib
 FLTK_LIB_DIR = $(TDT4102_DIR)/FLTK-1.4/lib/$(LIB_TYPE)
 
@@ -70,10 +70,7 @@ $(EXECUTABLE).exe: $(BUILDDIR)/$(EXECUTABLE).exe
 #rmdir /s /q $(BUILDDIR)
 clean:
 	@echo Cleaning the output files in $(BUILDDIR)
-	-del $(BUILDDIR)\*.obj
-	-del $(BUILDDIR)\$(EXECUTABLE).exe
-	-del $(BUILDDIR)\$(EXECUTABLE).pdb
-	-del $(BUILDDIR)\$(EXECUTABLE).ilk
-
-clearscreen:
-	-cls
+	-del $(BUILDDIR)\*.obj 2> NUL
+	-del $(BUILDDIR)\$(EXECUTABLE).exe 2> NUL
+	-del $(BUILDDIR)\$(EXECUTABLE).pdb 2> NUL
+	-del $(BUILDDIR)\$(EXECUTABLE).ilk 2> NUL
