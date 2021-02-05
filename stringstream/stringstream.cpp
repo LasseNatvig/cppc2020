@@ -30,7 +30,7 @@ int main() {
 	string s1, s2;
 	stringstream ss{ "Initial 1234567890" }; // A read&write stringstream
 	ss >> s1 >> s2;
-	cout << s1 << ", " << s2 << endl;
+	cout << s1 << " " << s2 << endl;
 	ss.str(""); // both these two statements are needed to
 	ss.clear(); // reset the stringstream
 	ss << "more" << " text" << endl;
