@@ -55,7 +55,8 @@ bool APSunit::set_description(const string s) {
 	return true;
 }
 void APSunit::set_state(const APSstate s) { 
-	state = s; // NOTE, the following is very unsafe programming. We assume that the first shape added to display in the constructor is the rectangle
+	state = s; // NOTE, the following is very unsafe programming. We assume that the 
+		// first shape added to display in the constructor is the rectangle
 	display[0].set_fill_color(textToColorMap.at(stateColortextMap.at(s)));
 }
 ostream& operator<<(ostream& os, APSunit& unit) {
@@ -83,6 +84,7 @@ void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) 
 		}
 	}
 }
+
 APSstate magicReadState() { // simulates reading data and determination of state
 	return static_cast<APSstate>( rand() % ((static_cast<int>(APSstate::flaky) - 
 										     static_cast<int>(APSstate::unknown)) + 1));

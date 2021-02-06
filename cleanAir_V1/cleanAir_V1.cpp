@@ -1,8 +1,6 @@
 // cleanAir_V1 (Several files)
-
-// Only include Windows.h for Windows builds
 #ifdef _WIN32  
-#include <Windows.h>
+	#include <Windows.h> // Only include Windows.h for Windows builds
 #endif
 #include "Graph.h"
 #include "Simple_window.h" 

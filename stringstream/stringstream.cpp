@@ -1,5 +1,5 @@
+// stringstream.cpp
  #include "std_lib_facilities.h"
-
 double str_to_double(string s) {
 	// if possible, convert characters in s to floating-point value
 	istringstream is{ s };// make a stream so that we can read from s

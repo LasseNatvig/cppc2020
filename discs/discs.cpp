@@ -2,15 +2,16 @@
  // - demonstrates overloading of operator< for struct/class
 #include "Graph.h"
 #include "Simple_window.h"
+
 using namespace Graph_lib;
 struct Disc{
 	int radius;
 	int x;
 	int y;
 	Disc(int r, int x, int y) : radius{r}, x{x}, y{y} {}; 
-	bool operator<(const Disc& rhs) const { return (radius < rhs.radius); } // sort discs according to size
-    // bool operator<(const Disc& rhs) const { return (x < (rhs.x)); } // sort discs according to x-coord
-    // bool operator<(const Disc& rhs) const { return (x*y < (rhs.x*rhs.y)); } // sort discs according to x*y
+	//bool operator<(const Disc& rhs) const { return (radius < rhs.radius); } // sort discs according to size
+	// bool operator<(const Disc& rhs) const { return (x < (rhs.x)); } // sort discs according to x-coord
+    bool operator<(const Disc& rhs) const { return (x*y < (rhs.x*rhs.y)); } // sort discs according to x*y
 };
 vector<Disc> generateDiscs(int n) {
 	vector<Disc> temp;
@@ -23,7 +24,7 @@ vector<Disc> generateDiscs(int n) {
 	return temp;
 }
 void showDiscs(vector<Disc> discVec, Vector_ref<Circle>& vrc, Simple_window& win){
-	for (unsigned int i = 0; i < discVec.size(); i++) {
+	for (unsigned int i = 0; i < discVec.size()/2; i++) {  // only for 1/2 of the discs, wait and see why?
 		int x = discVec.at(i).x;
 		int y = discVec.at(i).y;
 		int r = discVec.at(i).radius;
@@ -34,11 +35,10 @@ void showDiscs(vector<Disc> discVec, Vector_ref<Circle>& vrc, Simple_window& win
 	}
 }
 int main() {
-
-	Simple_window win{ Point{10, 10}, 1800, 1200, "discs" };
+	vector<Disc> discs = generateDiscs(10000);
+	Simple_window win{ Point{10, 10}, x_max()-10, y_max()-10, "discs" };
 	Vector_ref<Circle> display;
-	vector<Disc> discs = generateDiscs(100000);
-	// sort(discs.begin(), discs.end());
+	//sort(discs.begin(), discs.end());  // standard sort using iterators begin() and end()
     sort(discs); // assumes std_lib_facilities 
 	win.wait_for_button();
 	showDiscs(discs, display, win);	
