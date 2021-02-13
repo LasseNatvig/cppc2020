@@ -35,7 +35,7 @@ class Teacher : public Person {
 private:
 	string department;
 public:
-	Teacher(const string &name, const string &ssn, const string &department)
+	Teacher(const string& name, const string& ssn, const string& department)
 		: Person{ name, ssn }, department{ department } { }
 	string getDepartment() const { return department; }
 	string toString() const;

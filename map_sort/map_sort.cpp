@@ -9,9 +9,9 @@ struct Student {
 ostream& operator<<(ostream& os, const Student& s) {
 	return os << s.id << ":" << s.firstName << " " << s.lastName;
 }
-//bool operator<(const Student& left, const Student& right) {
-//	return left.firstName < right.firstName;
-//}
+// bool operator<(const Student& left, const Student& right) {
+// 	return left.firstName < right.firstName;
+// }
 
 bool operator<(const Student& left, const Student& right) {
 	return left.id < right.id;
