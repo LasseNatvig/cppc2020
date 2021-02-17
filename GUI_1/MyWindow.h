@@ -27,7 +27,7 @@ private:
 
 	void start(); // action to be done when start_button is pressed
 	void quit() { cout << name + ": quit called\n"; hide(); } // action to be done when quit_button is pressed, placed inline. For hide(), see PPP page 567
-	void end();
+	void end();  // removed color-menu
 	void red_pressed();
 	void blue_pressed();
 	void green_pressed();

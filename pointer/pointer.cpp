@@ -4,7 +4,6 @@ using namespace std;
 int main() {
 
 	// Part 1, slide pointer and pointer values
-
 	int num = 10;
 	double realNum = 22.33;
 	int *intPtr; // a pointer to int
@@ -30,17 +29,12 @@ int main() {
 		int x2 = p3[1];	// get the value of the 2nd element of p3
 		int x3 = *p3; // we can also use the dereference operator * for an array
 		 // *p3 means p3[0]  (and vice versa, p3[0] means *p3)
-
 	}
 
 	{
 		typedef int* intPtr; // 
 		intPtr p1;
 		intPtr p2 = nullptr;
-		//cout << *p1 << " " << *p2;   // *p2 gir exception i debugger, fint å vise
+		//cout << *p1 << " " << *p2;   // *p2 gives exception in debugger 
 	}
-
-	cout << "\nType any char + return to quit:";
-	char c;
-	cin >> c;
 }

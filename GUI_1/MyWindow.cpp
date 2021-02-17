@@ -9,7 +9,7 @@ MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ t
 	quit_button{ Point{x_max() - 80, 10}, 70, 20, "Quit", cb_quit },
 	end_button{ Point{10, 40}, 70, 20, "End", cb_end },
 	name{title},
-	colorMenu{ Point{x_max() - 80, 40}, 70, 20, Menu::vertical, "color" },
+	colorMenu{ Point{x_max() - 80, 40}, 70, 20, Menu::vertical, ""}, // last parameter (label) is not used
 	noOfDiscs{ Point{160, 10}, 50, 20, "discs"},
 	radius{ Point{130, 40}, 80, 20, "radius"} 
 {
@@ -25,6 +25,13 @@ MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ t
 	attach(radius); radius.hide();
 }
 
+void MyWindow::cb_start(Address, Address win) { reference_to<MyWindow>(win).start(); }
+void MyWindow::cb_quit(Address, Address win) { reference_to<MyWindow>(win).quit(); }
+void MyWindow::cb_red(Address, Address win) { reference_to<MyWindow>(win).red_pressed(); }
+void MyWindow::cb_blue(Address, Address win) { reference_to<MyWindow>(win).blue_pressed(); }
+void MyWindow::cb_green(Address, Address win) { reference_to<MyWindow>(win).green_pressed(); }
+void MyWindow::cb_end(Address, Address win) { reference_to<MyWindow>(win).end(); }
+
 void MyWindow::start() {
 	cout << name + ": start called\n";
 	colorMenu.show();
@@ -38,12 +45,6 @@ void MyWindow::end() {
 	colorMenu.hide();
 	end_button.hide();
 }
-void MyWindow::cb_start(Address, Address win) { reference_to<MyWindow>(win).start(); }
-void MyWindow::cb_quit(Address, Address win) { reference_to<MyWindow>(win).quit(); }
-void MyWindow::cb_red(Address, Address win) { reference_to<MyWindow>(win).red_pressed(); }
-void MyWindow::cb_blue(Address, Address win) { reference_to<MyWindow>(win).blue_pressed(); }
-void MyWindow::cb_green(Address, Address win) { reference_to<MyWindow>(win).green_pressed(); }
-void MyWindow::cb_end(Address, Address win) { reference_to<MyWindow>(win).end(); }
 
 void MyWindow::red_pressed() {
 	cout << name + ": red pressed\n";
@@ -67,9 +68,9 @@ void MyWindow::drawDiscs(Color color) {
 		radi += "r=" + to_string(r) + " ";
 		discs.push_back(new Circle{ Point{10 + (rand() % (x_max() - 10)),
 										  100 + (rand() % (y_max() - 60))}, r});
-		discs[discs.size() - 1].set_fill_color(color);
-		attach(discs[discs.size() - 1]);
+		discs.back().set_fill_color(color); // discs.back() equals discs[discs.size()-1]
+		attach(discs.back()); // back() is found in standard vector, and it was added to our (TDT4102) Vector_ref spring 2021 
 	}
 	radius.put(radi);
-	redraw();
+	redraw();  // asks to redraw the widget (the Window)
 }
