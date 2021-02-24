@@ -1,6 +1,6 @@
  // this.cpp
 // Gives help to students with execise 8, TDT4102 spring 2019
-// demonstrates this, <set> insert & erase, static member variable, const pointer, destructor
+// demonstrates this, <set> insert & erase, static member variable, pointer to const object, destructor
 
 #include "std_lib_facilities.h"
 
@@ -22,7 +22,7 @@ Person::~Person() {
 }
 
 set<const Person*> Person::oldPersons;  // static member variable is one common variable for all
-	// objects of the class and must be initialized outside the class declaration.
+// objects of the class and must be initialized outside the class declaration, OR you can use inline (see)
 
 void Person::listOld() {
 	cout << "Old: ";

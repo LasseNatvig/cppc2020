@@ -15,13 +15,13 @@ int main() {
 	{ // A much better way of doing exactly the same
 		int num = 10;
 		double realNum = 22.33;
-		int *intPtr = &num; // a pointer to int
-		double* doublePtr = &realNum;; // a pointer to double
+		int *intPtr{&num}; // a pointer to int
+		double* doublePtr = &realNum; // a pointer to double
 		cout << *intPtr << " " << *doublePtr << endl;
 	}
 
 	// Part 2, slide "Access through pointers"
-	{ 
+	{ // this is C-arrays
 		int* p3 = new int[5]; // get (allocate) 5 ints
 			// array elements are numbered [0], [1], [2], …
 		p3[0] = 7;	// write to (“set”) the 1st element  of p3
@@ -35,6 +35,6 @@ int main() {
 		typedef int* intPtr; // 
 		intPtr p1;
 		intPtr p2 = nullptr;
-		//cout << *p1 << " " << *p2;   // *p2 gives exception in debugger 
+		cout << *p1 << " " << *p2;   // *p2 gives exception in debugger 
 	}
 }
