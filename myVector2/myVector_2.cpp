@@ -24,7 +24,7 @@ public:
 
 void setVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++) 
-		v.set(i, static_cast<double>(sqrt(i)));
+		v.set(i, sqrt(i));
 }
 
 void printVector(myVector& v) {
@@ -44,14 +44,14 @@ try {
 	setVector(doubleVec);
 	printVector(doubleVec);
 	
-	// demonstrate memory leakage
+	// Part-1) demonstrate memory leakage
 	cout << "One double is " << sizeof(double) << " bytes\n";
 	for (int i = 0; i < 3000; i++) {
 		  memoryLeak(1000000);
 	}
 	cout << endl;
 
-	{ // demonstrate the danger of C-arrays not being range-checked
+	{ // Part-2, demonstrate the danger of C-arrays not being range-checked
 		myVector test(10);
 		cout << test.get(-7);  // can read outside the vector !
 		test.set(20, 777);
@@ -59,7 +59,7 @@ try {
 
 	}
 
-	// demonstrate missing copy constructor, Chap. 18
+	// Part-3, demonstrate missing copy constructor, Chap. 18, will crash
 	{	
 		myVector v(3);
 		v.set(2, 2.2);
