@@ -4,10 +4,9 @@
   in myVector_1.cpp since we expect the reader to study example by example.
   - the definition of the constructor of myVector is here moved inline 
   - example is used in lecture to demonstrate memory leak, to motivate 
-    the concept destructor, and the danger of C-arrays not being range-checked.
-*/
+    the concept destructor, and the danger of C-arrays not being range-checked. */
 #include<iostream>
-#include<math.h> //
+#include<math.h>
 using namespace std;
 class myVector { 
 	int sz;	// the number of elements (“the size”)
@@ -45,12 +44,12 @@ try {
 	setVector(doubleVec);
 	printVector(doubleVec);
 	
-	// // demonstrate memory leakage
-	// cout << "One double is " << sizeof(double) << " bytes\n";
-	// for (int i = 0; i < 3000; i++) {
-	// 	  memoryLeak(1000000);
-	// }
-	// cout << endl;
+	// demonstrate memory leakage
+	cout << "One double is " << sizeof(double) << " bytes\n";
+	for (int i = 0; i < 3000; i++) {
+		  memoryLeak(1000000);
+	}
+	cout << endl;
 
 	{ // demonstrate the danger of C-arrays not being range-checked
 		myVector test(10);
