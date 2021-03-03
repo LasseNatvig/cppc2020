@@ -47,7 +47,6 @@ T & myVector<T>::at(int i) {
 	return elem[i];
 }
 
-
 template<typename T>  // This must be repeated before every "section" of code
 myVector<T>::myVector(initializer_list<T> lst) // initializer-list constructor
 	: sz{ static_cast<int>(lst.size()) }, // static_cast: assume size fits in an int
@@ -87,7 +86,7 @@ myVector<T>& myVector<T>::operator=(const myVector<T>& arg)
 template<typename T>
 void print(myVector<T>& vec) {
 	for (int i = 0; i < vec.size(); i++) {
-		cout << vec[i] << " ";
+		cout << vec.at(i) << " ";
 	}
 	cout << endl;
 }
@@ -100,7 +99,7 @@ struct Run {
 		: name{ s }, distance{ i }{}
 };
 
-ostream& operator<<(ostream& ofs, Run& session) {
+ostream& operator<<(ostream& ofs, const Run& session) {
 	return ofs << "\nRun: " << session.name << " "
 		<< session.distance << " km.";
 }
@@ -125,14 +124,10 @@ try {
 
 	cout << "\n****************************************\n";
 	{  // demonstrate generic print function
-		myVector<double> dv1{ 1.1, 2.2, 3.3 };
-		print(dv1);
-		myVector<char> cv{ 'a', 'c', 'd', 'x' };
-		print(cv); 
 		myVector<Run> training(3);
-		training[0] = { "Staup", 8 };
-		training[1] = { "Tveite-runden", 40 };
-		training[2] = { "Vogel-runden", 12 };
+		training.at(0) = { "Staup", 8 };
+		training.at(1) = { "Tveite-runden", 40 };
+		training.at(2) = { "Vogel-runden", 12 };
 		print(training);
 	}
 
@@ -141,11 +136,9 @@ try {
 		vector<double> properVector{ 1.1, 2.2, 3.3 };
 		for (auto e : properVector) cout << e << " ";
 		myVector<double> dv1{ 1.1, 2.2, 3.3 };
-		// for (auto e : dv1) cout << e << " ";
+		// for (auto e : dv1) cout << e << " ";  // does not compile, begin() and end() functions are missing
 	}
 	
-	cout << "\nType any char + return to quit:";
-	char c; cin >> c;
 }
 catch (myVectorRangeError& e) {
 	cerr << "Range error in myVector at index: "

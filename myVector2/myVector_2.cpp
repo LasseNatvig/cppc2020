@@ -44,12 +44,12 @@ try {
 	setVector(doubleVec);
 	printVector(doubleVec);
 	
-	// Part-1) demonstrate memory leakage
-	cout << "One double is " << sizeof(double) << " bytes\n";
-	for (int i = 0; i < 3000; i++) {
-		  memoryLeak(1000000);
-	}
-	cout << endl;
+	// // Part-1) demonstrate memory leakage
+	// cout << "One double is " << sizeof(double) << " bytes\n";
+	// for (int i = 0; i < 3000; i++) {
+	// 	  memoryLeak(1000000);
+	// }
+	// cout << endl;
 
 	{ // Part-2, demonstrate the danger of C-arrays not being range-checked
 		myVector test(10);

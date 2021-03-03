@@ -22,12 +22,14 @@ public:
 		elem{ new double[s] }{ // allocate s doubles
 		for (int i = 0; i < sz; i++) elem[i] = 0.0; // initialize
 	}
-	myVector(const myVector&);	// copy constructor: defined below
-	myVector& operator=(const myVector& arg); // copy assignment: defined below 
-	~myVector() { delete[] elem; } // destructor
 	int size() const { return sz; }	// the current size
 	double get(int n) const { return elem[n]; } // PPP 17.6
 	void set(int n, double v) { elem[n] = v; }
+
+	myVector(const myVector&);	// copy constructor: defined below
+	myVector& operator=(const myVector& arg); // copy assignment: defined below 
+	~myVector() { delete[] elem; } // destructor
+	
 	myVector(initializer_list<double> lst);   // initializer-list constructor
 	double& operator[](int i) { return elem[i]; }  // unchecked access via []
 	const double& operator[](int i) const { return elem[i]; }   // unchecked const access via []
@@ -52,11 +54,10 @@ const double& myVector::at(int i) const {
 
 myVector::myVector(const myVector& arg)
 	:sz{ arg.sz },
-	elem{ new double[arg.sz] }
-{ // allocate space for elements, 
-  // then initialize them (by copying)
+	elem{ new double[arg.sz] } //allocate space for elements
+{   // initialize them (by copying)
 	for (int i = 0; i < sz; ++i) {
-		elem[i] = arg.elem[i];
+		elem[i] = arg.elem[i]; // initialize them (by copying)
 	}
 }
 
@@ -74,7 +75,7 @@ myVector& myVector::operator=(const myVector& arg)
 
 void useVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
-		v.set(i, static_cast<double>(sqrt(i)));
+		v.set(i, sqrt(i));
 }
 
 void printVector(myVector& v) {
@@ -87,6 +88,7 @@ try {
 	myVector doubleVec(10);
 	useVector(doubleVec);
 	printVector(doubleVec);
+	cout << endl;
 
 	// Test copy constructor
 	{
@@ -109,6 +111,7 @@ try {
 		cout << endl;
 	}
 
+
 	// Test initializer list
 	{
 		myVector v1{ 1,2,3 };
@@ -128,7 +131,7 @@ try {
 		}
 		cout << endl;
 		// test operator[] const
-		myVector const vReadOnly{ 8, 9, 11 };
+		myVector const vReadOnly{ 11,12,13 };
 		for (int i = 0; i < vReadOnly.size(); ++i) {
 			cout << vReadOnly[i];
 		}
@@ -140,9 +143,6 @@ try {
 		cout << v[100] << endl;
 		cout << v.at(100) << endl;
 	}
-
-	cout << "\nType any char + return to quit:";
-	char c; cin >> c;
 	return 0;
 }
 catch (myVectorRangeError& e) {
