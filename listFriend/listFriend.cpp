@@ -1,4 +1,4 @@
- // LinkedList.cpp
+ // listFriend.cpp
 // a simpler example than PPP 17.9.3
 
 #include <iostream>

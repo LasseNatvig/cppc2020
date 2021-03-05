@@ -129,6 +129,7 @@ try {
 		training.at(1) = { "Tveite-runden", 40 };
 		training.at(2) = { "Vogel-runden", 12 };
 		print(training);
+		cout << endl;
 	}
 
 	// However, myVector is still incomplete ...
@@ -137,6 +138,7 @@ try {
 		for (auto e : properVector) cout << e << " ";
 		myVector<double> dv1{ 1.1, 2.2, 3.3 };
 		// for (auto e : dv1) cout << e << " ";  // does not compile, begin() and end() functions are missing
+		cout << endl;
 	}
 	
 }
