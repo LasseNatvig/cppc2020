@@ -5,7 +5,7 @@
 #include <memory> // needed for unique_ptr
 using namespace std;
 
-vector<int>*make_vecOld() {
+vector<int>* make_vecOld() {
 	vector<int>* p{ new vector<int> };
 	p->push_back(3); 
 	p->push_back(-2);
@@ -13,7 +13,7 @@ vector<int>*make_vecOld() {
 	return p;
 }
 
-vector<int>*make_vecModern() { /// PPP page 703 - top
+vector<int>* make_vecModern() { /// PPP page 703 - top
 	unique_ptr<vector<int>> p{ new vector<int> };
 	p->push_back(3);
 	p->push_back(-2);
@@ -28,6 +28,7 @@ unique_ptr<vector<int>> make_vecBetter() { // PPP page 703 - bottom
 	return p;  // returns unique_ptr
 }
 
+
 vector<int> make_vecMove() { // PPP 19.5.5 
 	vector<int> res;  // this is the best solution
 	res.push_back(3);
@@ -40,7 +41,6 @@ unique_ptr<vector<int>> make_vec_make_unique(int n)  // make a filled vector
 	auto p = make_unique<vector<int>>();  // allocate on free store
 	   // … fill the vector with data; this may throw an exception …
 	for (int i = 0; i < n; i++) p->push_back(i*i);
-
 	return p;
 }
 
@@ -50,7 +50,7 @@ int main() {
 	ivPtr = make_vecOld();
 	ivPtr2 = ivPtr;
 	delete ivPtr;	
-	//delete ivPtr2;  // xmemory throws exception, multiple delete on same pointer
+	//delete ivPtr2;  // xmemory throws exception (access violation), multiple delete on same pointer
 
 	ivPtr = make_vecModern();
 	ivPtr2 = ivPtr;
@@ -60,9 +60,9 @@ int main() {
 	unique_ptr<vector<int>> uniPtr = make_vecBetter();
 	unique_ptr<vector<int>> uniPtr2;
 
-	// uniPtr2 = uniPtr;  // error: overload resolution selected deleted operator '='. This means that operator= is deleted for unique_ptr to 
+	// uniPtr2 = uniPtr;  // compiler error (in terminal): overload resolution selected deleted operator '='. This means that operator= is deleted for unique_ptr to 
 	  // avoid the possibility of making a copy 
-	  // 
+	
 	uniPtr2 = move(uniPtr); // transfer ownership of unique ptr 
 	// value of uniPtr is now unspecified
 	auto uPtr = move(uniPtr2);  // 
@@ -72,10 +72,7 @@ int main() {
 	// unique_ptr will always call delete when it leaves scope
 
 	auto v = make_vecMove();
-	for (auto e : v) cout << e << " ";
-	cout << endl;
 
 	unique_ptr<vector<int>> uniPtr3 = make_vec_make_unique(5);
-	for (auto e : *uniPtr3) cout << e << " ";
 	return 0;
 }

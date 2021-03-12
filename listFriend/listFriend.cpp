@@ -1,4 +1,6 @@
- // listFriend.cpp
+// listFriend.cpp
+// The only difference from example linkedList.cpp is that Node here is declared as class and not struct,
+// and therefore we need "friend class List" declaration in line 15
 // a simpler example than PPP 17.9.3
 
 #include <iostream>

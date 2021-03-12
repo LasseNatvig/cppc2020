@@ -43,12 +43,21 @@ public:
 	const T* end() const; // const iterator one beyond last element
 	T* begin(); // iterator to first element
 	T* end(); // iterator one beyond last element
+	// Note, these are not full complete iterators, see lecture notes
 };
 
 
-template<typename T>
+// template<typename T>
+// T & myVector<T>::at(int i) {
+// 	if (i < 0 || i >= sz) throw myVectorRangeError(i);
+// 	return elem[i];
+// }
+
+template<typename T>  // alternative to myVector4 showing that we do not need to use our own class for throwing
+	// such an exception. It was done to illustrate that we CAN use such user-defines class for the purpose, eg.
+	// if we want report many different data values via the class-object.
 T & myVector<T>::at(int i) {
-	if (i < 0 || i >= sz) throw myVectorRangeError(i);
+	if (i < 0 || i >= sz) throw runtime_error("Range error at index " + to_string(i));;
 	return elem[i];
 }
 
@@ -144,6 +153,11 @@ try {
 	myVector<char> cv{ 'a', 'c', 'd', 'x' };
 	print(cv);
 
+	// // demonstrate out of range (alternative from myVector4.cpp)
+	// myVector<int> test {1,2,3};
+	// cout << test.at(2) << endl;
+	// cout << test.at(10) << endl;
+	
 	// demonstrate move constructor and assignment
 	cout << "\nCase a:";
 	myVector<double> dv2 {fill(10)};  // C++14: move constructor used.
@@ -191,16 +205,16 @@ try {
 	cout << endl;
 	print(v4); // shows vector not changed
 	
-	//for (auto e : v4) {  // try to change vector
-	//	*e = e + 2; // * does not compile, we need a proper Iterator
-	//	cout << e << " ";
-	//}
-	//cout << endl;
+	// for (auto e : v4) {  // try to change vector
+	// 	*e = e + 2; // * does not compile, we need a proper Iterator
+	// 	cout << e << " ";
+	// }
+	// cout << endl;
 
-	//for (auto it = v4.begin(); it != v4.end; it++) {  // try to change vector
-	//	it = it + 2; // * does not compile, we need a proper Iterator
-	//	cout << *it << " ";
-	//}
+	// for (auto it = v4.begin(); it != v4.end; it++) {  // try to change vector
+	// 	it = it + 2; // * does not compile, we need a proper Iterator
+	// 	cout << *it << " ";
+	// }
  
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;
