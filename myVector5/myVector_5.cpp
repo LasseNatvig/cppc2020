@@ -53,11 +53,12 @@ public:
 // 	return elem[i];
 // }
 
-template<typename T>  // alternative to myVector4 showing that we do not need to use our own class for throwing
-	// such an exception. It was done to illustrate that we CAN use such user-defines class for the purpose, eg.
-	// if we want report many different data values via the class-object.
+template<typename T>  // alternative to myVector4 showing that we do not need to use 
+	// our own class for throwing such an exception. It was done to illustrate that 
+	// we CAN use such user-defined class for the purpose, eg. if we want report 
+	// many different data values via the class-object.
 T & myVector<T>::at(int i) {
-	if (i < 0 || i >= sz) throw runtime_error("Range error at index " + to_string(i));;
+	if (i < 0 || i >= sz) throw runtime_error("Range error at index " + to_string(i));
 	return elem[i];
 }
 
