@@ -162,7 +162,7 @@ try {
 	// demonstrate move constructor and assignment
 	cout << "\nCase a:";
 	myVector<double> dv2 {fill(10)};  // C++14: move constructor used.
-	  // clang (TDT4102-spring 2020): move constructor NOT used (see slide notes)
+	  // clang (TDT4102-spring 2020->): move constructor NOT used (see slide notes)
 	print(dv2);
 
 	cout << "\nCase b:";
