@@ -37,8 +37,8 @@ int main() {
 		vector<int> v{ 1,2,4,2,4,1,8 };
 		for (auto e : v) cout << e << " ";
 		cout << endl;
-		//vector<int>::iterator it;
-		//it[2] = 999;  // runtime error, since the iterator it was not initialized
+		// vector<int>::iterator it;
+		// it[2] = 999;  // runtime error, since the iterator it was not initialized
 		vector<int>::iterator it = v.begin();
 		it[2] = 999; // random access iterator
 		for (auto e : v) cout << e << " ";
@@ -56,14 +56,6 @@ int main() {
 	// Part 3)
 	{
 		cout << "Part 3)\n";
-		const vector<int> v{ 1,2,4,8 }; // const vector
-		for (auto e : v) {
-			cout << e << " ";
-			e = 7;  // e is read, but is local variable, not an iterator
-		}
-		cout << endl;
-		for (auto e : v) cout << e << " ";
-		cout << endl;  // v is unchanged
 
 		const vector<int> v2{ 1,2,4,8 }; // const vector
 		for (vector<int>::const_iterator it = v2.begin();
@@ -72,14 +64,12 @@ int main() {
 				// *it = 7;  // error, cannot assign to variable that is const
 		}
 		cout << endl;
-		for (auto e : v2) cout << e << " ";
 
 		vector<int> v3{ 1,2,4,8 }; // mutable vector
 		for (vector<int>::iterator it = v3.begin();
 			it != v3.end(); it++) {
 			*it = 7;  // fills array with 7
 		}
-		cout << endl;
 		for (auto e : v3) cout << e << " ";
 		cout << endl;
 
