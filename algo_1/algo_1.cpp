@@ -2,7 +2,7 @@
 #include<iostream>
 #include<vector>
 #include<set>
-#include <algorithm> // Required by find_if() (But not by find() !?)
+#include <algorithm> // Required by find_if() (But not by find())
 using namespace std;
 
 void search(vector<int>& v, int x) {
@@ -30,12 +30,11 @@ double v_val; // the value to which larger_than_v()
 bool larger_than_v(double x) { return x > v_val; }
 
 class Larger_than {
-	int v;
+	double v;
 public:
-	Larger_than(int vv) : v{ vv } {}
+	Larger_than(double vv) : v{ vv } {}
 	bool operator()(int x) const { return x > v; }
 };
-
 
 int main() {
 	vector<int> v{ 11, 22, 33, 77, 44 };
@@ -60,18 +59,16 @@ int main() {
 		cout << "find_if found " << *it2 << endl;
 	}
 
-	v_val = 42;
+	v_val = 42.0;
 	auto it3 = find_if(vd.begin(), vd.end(), larger_than_v);
 	if (it3 != vd.end()) {
 		cout << "find_if found " << *it3 << endl;
 	}
 
-	auto it4 = find_if(vd.begin(), vd.end(), Larger_than(42));
+	auto it4 = find_if(vd.begin(), vd.end(), Larger_than(42.0));
 	if (it4 != vd.end()) {
 		cout << "find_if found " << *it4 << endl;
 	}
-
-
 
 	return 0;
 }

@@ -24,14 +24,14 @@ int main() {
 	foodPrices.insert({ "Coke", 20.67 });
 	print(foodPrices);
 	auto it = foodPrices.find("Bread");
-	if (it != foodPrices.end()) {
+
+	if (it != foodPrices.end()) { // must ensure we do not try to erase the end() iterator, not allowed
 		foodPrices.erase(it); // Bread found, erase by iterator it
 	}
 	foodPrices.erase("Coke");
 	foodPrices.erase("Solo");  // erase on non-existing pair is harmless
 	cout << foodPrices["Banana"] << endl; // NOTE, reading missing element inserts!
 	print(foodPrices);
-
 
 	cout << endl;
 	try {
@@ -40,7 +40,7 @@ int main() {
 		cout << foodPrices.at("melk") << endl;
 	}
 	catch (exception& e) {
-		cerr << "Exception caught: " << e.what();
+		cerr << "Exception caught: " << e.what() << endl;
 	}
 	return 0;
 }
