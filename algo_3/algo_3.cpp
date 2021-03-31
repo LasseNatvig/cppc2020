@@ -31,8 +31,8 @@ ostream& operator<<(ostream& ofs, const Student& s) {
 }
 
 int main() {
-	// Part 1:
-	{
+	{ 	// Part 1:
+
 		vector<int> v{ 1,1,1,1000 };
 		cout << accumulate(v.begin(), v.end(), 3) << endl;
 
@@ -46,8 +46,8 @@ int main() {
 		cout << endl;
 	}
 
-	// Part 2:
-	{
+	{ 	// Part 2:
+
 		vector<double> dv{ 22.22, 11.11, 33.33, 7.7 };
 		sort(dv.begin(), dv.end());
 		for (auto e : dv) cout << e << " ";
@@ -64,13 +64,12 @@ int main() {
 	
 	}
 
-	// Part 3:
-	{
+	{ 	// Part 3:
+
 		vector<double> dv{22.22, 11.11, 33.33, 7.7};
 		sort(dv);
 		for (auto e : dv) cout << e << " "; 
 		cout << endl;
 	}
-
 	return 0;
 }
