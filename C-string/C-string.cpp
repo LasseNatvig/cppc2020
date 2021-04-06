@@ -2,9 +2,8 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-// comment the next line when compiling for MAC or Unix
- 
 
+ 
 int main() {
 	char a[10] = "ole";  // with extra unused space
 	char a2[4] = "ole";
@@ -15,11 +14,14 @@ int main() {
 	strcpy(a, b);  // VS Code gives warning and suggests strcpy_s 
 
 // In general, the availability of these functions differ between operating systems and libraries.
-// More info is here: https://en.cppreference.com/w/c/string/byte/strcpy	
+// More info is here: https://en.cppreference.com/w/c/string/byte/strcpy
+// - The code example there demonstrates a more general strcpy_s() functions that runs under Linux
+//   and probably also MacOS. Size of destination is given, and it has a return value
+
 #ifdef _MSC_VER
 	strcpy_s(a, b);  // is part of C11, only available under windows
 	// strcpy_s(a2, b); // Gives runtime error: "L buffer is too small..."
-#else
+#else 
 	strcpy(a, b);
 	strcpy(a2, b);
 #endif
@@ -33,6 +35,7 @@ int main() {
 
 	// strncpy(a,b,n); copies n chars from the start of b to a (from the start of a), gives warning under windows
 	// More info: https://en.cppreference.com/w/c/string/byte/strncpy
+	// - same comment as above for Linux and MacOS
 #ifdef _MSC_VER
 	strncpy_s(d, c, 4);
 #else

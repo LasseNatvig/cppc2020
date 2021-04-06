@@ -31,7 +31,7 @@ ostream& operator<<(ostream& ofs, const Student& s) {
 }
 
 int main() {
-	{ 	// Part 1:
+	{ 	// Part 1:  (These are from include-file numeric)
 
 		vector<int> v{ 1,1,1,1000 };
 		cout << accumulate(v.begin(), v.end(), 3) << endl;
