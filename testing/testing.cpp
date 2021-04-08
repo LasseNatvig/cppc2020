@@ -15,14 +15,13 @@ using namespace std;
 bool bin_search(const vector<int>::const_iterator& start, 
         const vector<int>::const_iterator& end, int value) {
 	if (start != end) { // start == end implies an empty sequence
-		auto mid_point = distance(start, end) / 2; // sets iterator for midpoint, distance returns "number of elements"
+		auto mid_point = distance(start, end) / 2; // sets iterator for midpoint, distance returns distance in vector measured by "number of hops"
           // See also https://en.cppreference.com/w/cpp/iterator/distance
 		auto mid_value = *(start + mid_point); // reads and stores the value found at the midpoint
 
 		if (mid_value == value) {
 			return true;  // value found
-		} 
-        else if (mid_point == 0) {
+		} else if (mid_point == 0) {
 			return false; // value is not found, and there are no more elements to check
 		} else if (value > mid_value) { // search in upper half
 			return bin_search(start + mid_point, end, value); // Try with "end - 1", testcase 1.4 will find the bug
@@ -61,7 +60,7 @@ istream& operator>>(istream& is, Test& t) {
         if (s == "}") { endOfSequenceFound = true; break; }
         t.seq.push_back(stoi(s));
     }
-    is.clear();
+    // is.clear();  // resets state of is to good
     string rightPar = "";
     if ( !(is >> t.res)) { throw TestSyntaxError("result-value missing");} 
     else if ((is >> rightPar) && 
@@ -71,7 +70,7 @@ istream& operator>>(istream& is, Test& t) {
 
 ostream& operator<<(ostream& os, const Test& t) {
     os << "{ " << t.label << ' ' << t.val << " { ";
-    copy(t.seq.begin(), t.seq.end(), ostream_iterator<int>(os," "));
+    for (auto e : t.seq) os << e << " ";
     return os << "} " << t.res << " }";
 }
 
