@@ -60,7 +60,7 @@ istream& operator>>(istream& is, Test& t) {
         if (s == "}") { endOfSequenceFound = true; break; }
         t.seq.push_back(stoi(s));
     }
-    // is.clear();  // resets state of is to good
+ 
     string rightPar = "";
     if ( !(is >> t.res)) { throw TestSyntaxError("result-value missing");} 
     else if ((is >> rightPar) && 
