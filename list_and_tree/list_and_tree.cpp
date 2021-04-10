@@ -1,4 +1,5 @@
 // list_and_tree.cpp
+// Note:
 // This code (wrt. linked list) is simpler and "less object-oriented" than LinkedList.cpp from earlier in the course
 // - main purpose here is to illustrate list vs. tree, and some simple recursive functions
 // - destructors for list and tree are not shown here
@@ -24,7 +25,7 @@ struct TreeNode {
 		left{ nullptr }, right{ nullptr } {}
 };
 
-ListNode* buildList(vector<int>& v) {
+ListNode* buildList(const vector<int>& v) {
 	ListNode* last = nullptr;
 	ListNode* first = nullptr;
 	for (int e : v) { // for all elelements in vector
@@ -81,12 +82,11 @@ void insertNode(int i, TreeNode* root) {
 	}
 }
 
-TreeNode* buildTree(vector<int>& v) { 
+TreeNode* buildTree(const vector<int>& v) { 
 	// assumes at least one element
 	assert(v.size() > 0);
 	TreeNode* root = new TreeNode(v[0]);
 	for (unsigned int i = 1; i < v.size(); i++) { 
-		// for all elements in vector 
 		insertNode(v[i], root);
 	}
 	return root;

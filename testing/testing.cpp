@@ -11,7 +11,7 @@ using namespace std;
 
 // Since binary_search() is in the standard library we define our own bin_search() to
 // be able to inject errors for demonstrating the testing. 
-// Thanks to EJAA for contributing to this code (guest lecture 2019)
+// Thanks to Einar Johan for contributing to this code (guest lecture 2019)
 bool bin_search(const vector<int>::const_iterator& start, 
         const vector<int>::const_iterator& end, int value) {
 	if (start != end) { // start == end implies an empty sequence
