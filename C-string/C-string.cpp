@@ -3,7 +3,7 @@
 #include <cstring>
 using namespace std;
 
- 
+
 int main() {
 	char a[10] = "ole";  // with extra unused space
 	char a2[4] = "ole";

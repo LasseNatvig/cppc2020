@@ -28,7 +28,7 @@ struct TreeNode {
 ListNode* buildList(const vector<int>& v) {
 	ListNode* last = nullptr;
 	ListNode* first = nullptr;
-	for (int e : v) { // for all elelements in vector
+	for (int e : v) { // for all elements in vector
 		if (last == nullptr) { // first element to insert
 			last = new ListNode{ e };
 			first = last;
